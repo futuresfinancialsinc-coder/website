@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Futures Financials Inc. — Home</title>
-  <meta name="description" content="Futures Financials Inc. is a student-led nonprofit delivering hands-on financial literacy education to 10,000+ students across 18 chapters in 7 countries." />
+  <title>Futures Financials | Student-Led Financial Literacy for Every Student</title>
+  <meta name="description" content="Futures Financials is a student-led nonprofit delivering hands-on financial literacy education to 10,000+ students across 18 chapters in 7 countries." />
   <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Favicons -->
@@ -20,7 +20,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Futures Financials Inc." />
-  <meta property="og:title" content="Futures Financials Inc. — Home" />
+  <meta property="og:title" content="Futures Financials | Student-Led Financial Literacy for Every Student" />
   <meta property="og:description" content="Futures Financials Inc. is a student-led nonprofit delivering hands-on financial literacy education to 10,000+ students across 18 chapters in 7 countries." />
   <meta property="og:image" content="https://futuresfinancials.org/images/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -29,18 +29,31 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Futures Financials Inc. — Home" />
+  <meta name="twitter:title" content="Futures Financials | Student-Led Financial Literacy for Every Student" />
   <meta name="twitter:description" content="Futures Financials Inc. is a student-led nonprofit delivering hands-on financial literacy education to 10,000+ students across 18 chapters in 7 countries." />
   <meta name="twitter:image" content="https://futuresfinancials.org/images/og-image.png" />
 
-  <!-- Organization structured data (for Google logo in search results) -->
+  <!-- Nonprofit organization structured data (brand entity + logo in search results).
+       schema.org's nonprofit type is "NGO" (there is no "NonprofitOrganization" type);
+       "EducationalOrganization" is added because the mission is education.
+       sameAs: Instagram + LinkedIn are live. Replace the PLACEHOLDER entries below
+       (or delete them) with real profile URLs — e.g. Facebook, X/Twitter, YouTube,
+       GuideStar/Candid, IRS Tax Exempt Organization Search. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Futures Financials Inc.",
+    "@type": ["NGO", "EducationalOrganization"],
+    "name": "Futures Financials",
+    "legalName": "Futures Financials Inc.",
     "url": "https://futuresfinancials.org/",
-    "logo": "https://futuresfinancials.org/android-chrome-512x512.png"
+    "logo": "https://futuresfinancials.org/android-chrome-512x512.png",
+    "description": "Futures Financials is a student-led nonprofit delivering hands-on financial literacy education to more than 10,000 students across 18 chapters in 7 countries.",
+    "sameAs": [
+      "https://www.instagram.com/futuresfinancials/",
+      "https://www.linkedin.com/company/futures-financials-inc/",
+      "PLACEHOLDER_GUIDESTAR_OR_CANDID_PROFILE_URL",
+      "PLACEHOLDER_FACEBOOK_PROFILE_URL"
+    ]
   }
   </script>
 </head>
