@@ -527,7 +527,7 @@ h3 { font-size: 1.2rem; }
   letter-spacing: 0.01em;
   margin: 0.2rem 0 0.3rem;
 }
-.team-card .t-role { font-size: 0.88rem; color: var(--muted); }
+.team-card .t-role { font-size: 0.88rem; color: var(--green-700); }
 
 /* Executive portrait — grayscale cutout baked onto a soft green backdrop */
 .team-photo {
