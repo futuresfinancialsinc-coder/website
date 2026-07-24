@@ -517,6 +517,16 @@ h3 { font-size: 1.2rem; }
 .team-card { text-align: center; }
 .team-card .img-slot--portrait { margin-bottom: 1rem; }
 .team-card .t-name { font-weight: 700; font-size: 1.05rem; color: var(--green-900); }
+.team-card .t-cofounder {
+  display: block;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.01em;
+  margin: 0.2rem 0 0.3rem;
+}
 .team-card .t-role { font-size: 0.88rem; color: var(--muted); }
 
 /* Executive portrait — grayscale cutout baked onto a soft green backdrop */
