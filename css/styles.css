@@ -282,6 +282,7 @@ h3 { font-size: 1.2rem; }
    ------------------------------------------------------------ */
 .site-header {
   position: sticky; top: 0; z-index: 100;
+  transition: transform 0.34s ease, opacity 0.34s ease;
   background: var(--white);
   border-bottom: 1px solid var(--line);
 }
@@ -316,15 +317,30 @@ h3 { font-size: 1.2rem; }
 .drop-btn::after { content: " ▾"; font-size: 0.75em; color: var(--green-700); }
 
 .dropdown {
-  position: absolute; top: calc(100% + 6px); left: 0;
+  position: absolute; top: calc(100% + 8px); left: 0;
   min-width: 200px;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
   padding: 0.5rem;
-  display: none;
+  display: flex;
   flex-direction: column; gap: 0.1rem;
+  /* Hidden without display:none so it can fade, and so the invisible
+     hover bridge below still works. */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+  z-index: 60;
+}
+/* Invisible bridge across the 8px gap between the button and the panel.
+   Without it the pointer leaves :hover mid-travel and the menu closes. */
+.dropdown::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -12px; height: 12px;
 }
 .dropdown a {
   display: block; padding: 0.55em 0.9em;
@@ -332,10 +348,16 @@ h3 { font-size: 1.2rem; }
   text-decoration: none; color: var(--ink); font-weight: 500; font-size: 0.95rem;
 }
 .dropdown a:hover { background: var(--green-50); color: var(--green-700); }
-.has-dropdown.open .dropdown { display: flex; }
+.has-dropdown.open > .dropdown,
+.has-dropdown:focus-within > .dropdown {
+  opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+}
 @media (hover: hover) {
-  .has-dropdown:hover .dropdown,
-  .has-dropdown:focus-within .dropdown { display: flex; }
+  .has-dropdown:hover > .dropdown {
+    opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+  }
+  /* Only one panel is ever raised, so two can never stack on each other. */
+  .has-dropdown:hover { z-index: 70; }
 }
 
 .nav-donate { margin-left: 0.5rem; padding: 0.6em 1.6em; font-size: 0.95rem; }
@@ -363,11 +385,18 @@ h3 { font-size: 1.2rem; }
     padding: 1rem 1.5rem 1.5rem; gap: 0.2rem;
   }
   .dropdown {
-    position: static; display: none;
+    position: static;
     border: none; box-shadow: none;
     padding-left: 1.2rem;
+    /* reset the desktop fade so tapping behaves predictably */
+    opacity: 1; visibility: visible; transform: none;
+    pointer-events: auto; transition: none;
+    display: none;
   }
-  .has-dropdown.open .dropdown { display: flex; }
+  .dropdown::before { content: none; }
+  .has-dropdown.open > .dropdown { display: flex; }
+  .has-dropdown:hover > .dropdown { display: none; }
+  .has-dropdown.open > .dropdown { display: flex; }
   .nav-donate { margin: 0.6rem 0 0; text-align: center; }
 }
 
@@ -1193,8 +1222,8 @@ h1 .hl,
   border-bottom: 1px solid rgba(217, 167, 40, 0.30);
 }
 /* Bigger, transparent logo mark so it stands out on the green bar */
-.logo-img { height: 50px; width: auto; border-radius: 0; }
-.site-header .logo-img { height: 58px; }
+.logo-img { height: 44px; width: auto; border-radius: 0; }
+.site-header .logo-img { height: 48px; }
 .site-header .brand,
 .site-header .brand-name { color: #fff; }
 .site-header .brand-name .brand-inc { color: var(--gold); }
@@ -1670,4 +1699,19 @@ h1 .hl,
   .site-nav a,
   .site-nav .nav-link,
   .site-nav .drop-btn { min-height: 44px; display: flex; align-items: center; }
+}
+
+
+/* ------------------------------------------------------------
+   Header auto-hide — slides/fades out while scrolling down and
+   returns on the first upward scroll. Never hides near the top,
+   while a menu is open, or under reduced-motion.
+   ------------------------------------------------------------ */
+.site-header.is-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header { transition: none; }
+  .site-header.is-hidden { transform: none; opacity: 1; }
 }

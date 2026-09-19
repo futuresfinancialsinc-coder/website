@@ -12,19 +12,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Dropdowns (click/tap; hover handled in CSS on pointer devices)
+  // Dropdowns. Hover opens them on pointer devices (CSS), click/tap opens
+  // them everywhere else. Only one is ever open, so panels cannot overlap.
+  const dropItems = document.querySelectorAll(".has-dropdown");
+  const closeAllDropdowns = () => {
+    dropItems.forEach((el) => {
+      el.classList.remove("open");
+      const b = el.querySelector(".drop-btn");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+  };
+
   document.querySelectorAll(".has-dropdown > .drop-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       const item = btn.parentElement;
       const wasOpen = item.classList.contains("open");
-      document.querySelectorAll(".has-dropdown.open").forEach((el) => el.classList.remove("open"));
-      item.classList.toggle("open", !wasOpen);
-      btn.setAttribute("aria-expanded", String(!wasOpen));
+      closeAllDropdowns();
+      if (!wasOpen) {
+        item.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
     });
   });
-  document.addEventListener("click", () => {
-    document.querySelectorAll(".has-dropdown.open").forEach((el) => el.classList.remove("open"));
+
+  // Hovering one menu clears any menu left open by an earlier click, so a
+  // hovered panel and a clicked panel can never be shown at the same time.
+  dropItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      dropItems.forEach((other) => {
+        if (other !== item) {
+          other.classList.remove("open");
+          const b = other.querySelector(".drop-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  });
+
+  document.addEventListener("click", closeAllDropdowns);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAllDropdowns();
   });
 
   // Footer year
@@ -167,5 +195,34 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, { threshold: 0.3 });
     gapIO.observe(gapGrid);
+  }
+
+  // Header auto-hide: slide away while scrolling down, return on scroll up.
+  const header = document.querySelector(".site-header");
+  if (header && !reduceMotion) {
+    const HIDE_BELOW = 200;   // never hide near the top of the page
+    const DELTA = 6;          // ignore sub-pixel jitter
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const navOpen = document.querySelector(".site-nav.open");
+      const menuOpen = document.querySelector(".has-dropdown.open");
+
+      if (y <= HIDE_BELOW || navOpen || menuOpen) {
+        header.classList.remove("is-hidden");
+      } else if (y > lastY + DELTA) {
+        header.classList.add("is-hidden");
+      } else if (y < lastY - DELTA) {
+        header.classList.remove("is-hidden");
+      }
+      lastY = y;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
   }
 });
