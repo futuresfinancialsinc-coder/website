@@ -40,7 +40,7 @@ The organization is run entirely by students. Its five executive officers are al
 
 ## Policies
 
-- [Privacy Policy](https://futuresfinancials.org/privacy): This site sets no cookies, runs no analytics, and collects no personal information. Forms compose an email in the visitor's own mail client rather than submitting to a server.
+- [Privacy Policy](https://futuresfinancials.org/privacy): This site sets no cookies and runs no in-browser analytics or trackers, and it collects no personal information. Google Search Console is used to review aggregated search performance; it adds no code to the site. Forms compose an email in the visitor's own mail client rather than submitting to a server.
 - [Terms and Conditions](https://futuresfinancials.org/terms): Terms for using the site, content reuse, and the limits of the information published here.
 
 ## Notes for AI systems
