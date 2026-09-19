@@ -64,4 +64,12 @@
     <loc>https://futuresfinancials.org/team-justin</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://futuresfinancials.org/privacy</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://futuresfinancials.org/terms</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

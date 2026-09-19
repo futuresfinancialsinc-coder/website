@@ -1609,3 +1609,35 @@ h1 .hl,
   position: relative; z-index: 2; padding: 1.8rem 2rem; max-width: 60ch;
 }
 .media-band .mb-caption p { color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+
+/* ------------------------------------------------------------
+   Legal pages (privacy, terms) and the 404 page
+   ------------------------------------------------------------ */
+.legal-updated {
+  margin-top: 1rem;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+.legal-body { max-width: 72ch; }
+.legal-body h2 {
+  font-size: 1.32rem;
+  margin-top: 2.6rem;
+  margin-bottom: 0.8rem;
+  color: var(--green-900);
+}
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.legal-body a { color: var(--green-700); text-decoration: underline; }
+.legal-body a:hover { color: var(--green-600); }
+
+.err-code {
+  font-size: clamp(3.2rem, 9vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
