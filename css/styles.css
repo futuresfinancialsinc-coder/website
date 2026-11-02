@@ -1953,16 +1953,33 @@ h1 .hl,
   text-align: center; margin: 0 0 1.6rem;
 }
 .rb-list {
+  /* Centre-wrapping rather than a fixed column count: the number of awards
+     changes, and a grid leaves an odd one stranded in the last row. */
   list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem 1.4rem; align-items: start; justify-items: center;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 1.8rem 1.2rem; align-items: flex-start;
 }
-@media (min-width: 760px) { .rb-list { grid-template-columns: repeat(4, 1fr); } }
 .rb-list li {
-  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
-  text-align: center; max-width: 220px;
+  flex: 0 1 150px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0.7rem; text-align: center;
 }
 .rb-list img { height: 60px; width: auto; max-width: 100%; display: block; }
+/* A wide horizontal lockup carries far more visual weight than the badges at a
+   shared height, so it sits shorter to match them. */
+.rb-wide img { height: 42px; margin-block: 9px; }
+/* Always two across on a phone: a fixed basis drops to one per row on a 360px
+   screen, where the two columns miss fitting by a few pixels. */
+@media (max-width: 479px) {
+  .rb-list { column-gap: 1rem; }
+  .rb-list li { flex-basis: calc(50% - 0.5rem); }
+}
+/* The roomier basis and gap only once there is width for the whole row. */
+@media (min-width: 760px) {
+  .rb-list { column-gap: 2.2rem; }
+  .rb-list li { flex-basis: 158px; }
+  .rb-wide { flex-basis: 190px; }
+}
 .rb-list span { font-size: 0.8rem; line-height: 1.35; color: var(--ink); }
 
 /* ============================================================
