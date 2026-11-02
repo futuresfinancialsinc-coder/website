@@ -4,49 +4,45 @@
    (tags, icons, highlights, the Donate button — never large fills)
    ============================================================ */
 
-/* Fonts. Open Sauce One is the single typeface for the entire site:
-   headlines, body, eyebrow labels, and display numerals. It is the same
-   free, open-source face cancerkidsfirst.org uses, self-hosted here.
-   Weight and letter-spacing carry the hierarchy instead of a second family. */
+/* One family, site-wide: Playfair Display, self-hosted as a variable font
+   (wght 400-900, latin subset, 38KB each for roman and italic). The old
+   Open Sauce One and Baloo 2 woff2 files are left in /fonts unreferenced
+   rather than deleted. */
 @font-face {
-  font-family: "Baloo 2";
-  src: url("../fonts/baloo-2-latin-800-normal.woff2") format("woff2");
-  font-weight: 800; font-style: normal; font-display: swap;
+  font-family: "Playfair Display";
+  src: url("../fonts/playfair-display-latin-variable-wghtOnly-normal.woff2") format("woff2-variations");
+  font-weight: 400 900; font-style: normal; font-display: swap;
 }
 @font-face {
-  font-family: "Open Sauce One";
-  src: url("../fonts/open-sauce-one-latin-400-normal.woff2") format("woff2");
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "Open Sauce One";
-  src: url("../fonts/open-sauce-one-latin-500-normal.woff2") format("woff2");
-  font-weight: 500; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "Open Sauce One";
-  src: url("../fonts/open-sauce-one-latin-700-normal.woff2") format("woff2");
-  font-weight: 700; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "Open Sauce One";
-  src: url("../fonts/open-sauce-one-latin-800-normal.woff2") format("woff2");
-  font-weight: 800; font-style: normal; font-display: swap;
+  font-family: "Playfair Display";
+  src: url("../fonts/playfair-display-latin-variable-wghtOnly-italic.woff2") format("woff2-variations");
+  font-weight: 400 900; font-style: italic; font-display: swap;
 }
 
 :root {
-  /* Greens — fresh, friendly kelly green (not teal, not olive) */
-  --green-950: #193e20;   /* near-black green: footer, hero overlays */
-  --green-900: #22592d;   /* deep section backgrounds */
-  --green-700: #2a843c;   /* primary brand green */
-  --green-600: #37ae4f;   /* hover / lighter brand green */
+  /* Greens — sampled from the logo artwork by hue-bucketing its pixels and
+     taking the median of each group, so the site and the mark are the same
+     green. Contrast against white is measured; see the comment on each. */
+  --green-950: #122d19;   /* deepest: footer, photo overlays */
+  --green-900: #193e20;   /* hero overlays, dark sections — 11.99:1 on white */
+  --green-800: #22592d;   /* deep section backgrounds — 8.28:1 */
+  --green-700: #1e7b42;   /* primary brand green — 5.29:1, safe for body text */
+  --green-600: #218f47;   /* logo leaf green — 4.13:1, LARGE TEXT ONLY */
+  --green-400: #37ae4f;   /* hover, gradient midpoint — never put text on this */
+  --green-300: #48c251;   /* logo leaf highlight — background only */
+  --green-200: #5ed555;   /* brightest, gradient start only */
   --green-100: #dff1e3;   /* soft tint for pills on light bg */
   --green-50:  #f2f8f3;   /* alternate light section background */
 
-  /* Accent — use sparingly */
-  --gold: #d9a728;
-  --gold-dark: #b8890f;
+  /* Accent — the gold the coins in the logo actually are */
+  --gold: #f8a31c;
+  --gold-light: #fee051;  /* coin highlight; 9.13:1 on --green-900 */
+  --gold-dark: #b8890f;   /* the only gold safe as text on white */
   --gold-tint: #faf3df;
+  --cream: #faf3df;       /* fourth background, breaks the white/green monotony */
+
+  /* One gradient recipe across the site and the social artwork. Horizontal. */
+  --brand-gradient: linear-gradient(90deg, #5ed555 0%, #3eb452 34%, #30a34c 72%, #229145 100%);
 
   /* Neutrals */
   --ink: #101612;         /* near-black text */
@@ -67,9 +63,9 @@
   --radius-pill: 999px;
 
   --shadow-card: 0 6px 24px rgba(16, 22, 18, 0.07);
-  --font-display: "Baloo 2", "Open Sauce One", system-ui, sans-serif; /* big impact numerals only */
-  --font-body: "Open Sauce One", -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-numeral: "Playfair Display", Georgia, serif;
+  --font-body: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -78,6 +74,8 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
   color: var(--ink);
   background: var(--white);
   line-height: 1.6;
@@ -101,7 +99,18 @@ a { color: var(--green-700); }
 /* ------------------------------------------------------------
    Typography
    ------------------------------------------------------------ */
-h1, h2, h3, h4 { line-height: 1.15; font-weight: 700; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+/* Small headings carry a touch more weight instead of switching family,
+   since Playfair thins out below about 1.2rem. */
+h4, h5, h6, .card h3, .press-card h3, .flow-step h3 {
+  font-weight: 600;
+  letter-spacing: 0;
+}
 
 .display {
   font-size: clamp(2.4rem, 5.5vw, 4rem);
@@ -405,9 +414,29 @@ h3 { font-size: 1.2rem; }
    ------------------------------------------------------------ */
 .section { padding: var(--section-md) 0; }
 .section--tint { background: var(--green-50); }
-.section--dark { background: var(--green-900); }
-.section--darkest { background: var(--green-950); }
-.on-dark { color: rgba(255, 255, 255, 0.9); }
+/* Vivid, not dull. Flat near-black green blocks are replaced by live
+   gradients drawn from the logo's own range, with the coin/sprout line art
+   behind them so a large green area still has something happening in it. */
+.section--dark {
+  background: linear-gradient(118deg, var(--green-800) 0%, var(--green-700) 52%, var(--green-800) 100%);
+  position: relative; isolation: isolate;
+}
+.section--darkest {
+  background: linear-gradient(118deg, var(--green-900) 0%, var(--green-800) 55%, var(--green-900) 100%);
+  position: relative; isolation: isolate;
+}
+.section--dark::before,
+.section--darkest::before,
+.cta-band::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: url("../images/pattern-coins.svg") repeat;
+  background-size: 300px 300px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+/* The pattern must not sit on top of a section that carries its own photo. */
+.section--stats-photo::before { display: none; }
+.on-dark { color: rgba(255, 255, 255, 0.95); }
 
 .section-head { max-width: 680px; margin-bottom: 3rem; }
 .section-head.center { margin-inline: auto; text-align: center; }
@@ -538,7 +567,7 @@ h3 { font-size: 1.2rem; }
 .story-card .img-slot { border-radius: 0; border: none; min-height: 320px; }
 .story-card .story-caption {
   position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.2rem;
-  background: var(--green-900);
+  background: linear-gradient(120deg, var(--green-800), var(--green-700));
   color: var(--white);
   border-radius: var(--radius-md);
   padding: 1.2rem 1.4rem;
@@ -704,7 +733,7 @@ h3 { font-size: 1.2rem; }
 }
 .map-frame svg path:hover { fill: #cfdbd3; }
 .map-frame svg path.active { fill: var(--green-600); cursor: pointer; }
-.map-frame svg path.active:hover { fill: var(--green-900); }
+.map-frame svg path.active:hover { fill: var(--green-700); }
 .map-tooltip {
   position: fixed; z-index: 50;
   background: var(--green-950); color: var(--white);
@@ -835,7 +864,7 @@ h3 { font-size: 1.2rem; }
 /* Stat band — serif gold numbers (CKF-style standout) */
 .stat-grid { text-align: center; }
 .stat-num {
-  font-family: var(--font-display);
+  font-family: var(--font-numeral);
   font-size: clamp(2.8rem, 6vw, 4.4rem);
   font-weight: 800; letter-spacing: -0.02em;
   color: var(--gold);
@@ -1036,8 +1065,8 @@ h3 { font-size: 1.2rem; }
    Footer
    ------------------------------------------------------------ */
 .site-footer {
-  background: var(--green-950);
-  color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(160deg, var(--green-900) 0%, var(--green-950) 70%);
+  color: rgba(255, 255, 255, 0.88);
   padding: 4.5rem 0 2rem;
 }
 .footer-grid {
@@ -1218,8 +1247,10 @@ h1 .hl,
    recolored to our theme). Overrides the earlier white header.
    ------------------------------------------------------------ */
 .site-header {
-  background: linear-gradient(90deg, var(--green-950) 0%, var(--green-900) 100%);
-  border-bottom: 1px solid rgba(217, 167, 40, 0.30);
+  /* Brighter bar. White nav text stays AA: 8.28:1 on --green-800,
+     5.29:1 on --green-700. */
+  background: linear-gradient(90deg, var(--green-800) 0%, var(--green-700) 100%);
+  border-bottom: 1px solid rgba(248, 163, 28, 0.38);
 }
 /* Bigger, transparent logo mark so it stands out on the green bar */
 .logo-img { height: 44px; width: auto; border-radius: 0; }
@@ -1412,7 +1443,7 @@ h1 .hl,
   padding: var(--card-pad-sm);
 }
 .ripple-tile .rt-num {
-  font-family: var(--font-display);
+  font-family: var(--font-numeral);
   font-size: 1.4rem; color: var(--gold);
   font-weight: 800;
 }
@@ -1464,7 +1495,7 @@ h1 .hl,
 }
 .story-illus .is-num {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-numeral);
   font-size: clamp(3rem, 7vw, 4.6rem);
   color: var(--gold);
   line-height: 1;
@@ -1538,7 +1569,7 @@ h1 .hl,
    while the headline, lede, and buttons rise in, staggered.
    Runs once on load (no scroll trigger). Reduced-motion safe.
    ------------------------------------------------------------ */
-.hero--photo { background: var(--green-950); }
+.hero--photo { background: var(--green-800); }
 .hero__bg {
   position: absolute; inset: 0; z-index: 0;
   background: url("../images/teaching-2.jpg") center / cover no-repeat;
@@ -1715,3 +1746,322 @@ h1 .hl,
   .site-header { transition: none; }
   .site-header.is-hidden { transform: none; opacity: 1; }
 }
+
+
+/* ============================================================
+   Research & Policy page + the stepped-stack motif
+   The stack edge is the signature divider: an asymmetric rising
+   step that echoes the gold bars in the logo. Pure CSS, no image.
+   ============================================================ */
+
+.narrow { max-width: 62ch; }
+.section-lede { color: var(--muted); max-width: 60ch; margin-top: 0.6rem; }
+
+/* --- the motif ---
+   A repeating stepped pattern read as a bar chart at any size I tried, so the
+   motif is one large gesture per section instead: the section's own top edge
+   is clipped into a three-step rise, echoing the stack of bars in the logo.
+   Percentages keep the steps proportional; the px heights keep them shallow. */
+.stack-top {
+  clip-path: polygon(0 34px, 33.333% 34px, 33.333% 17px, 66.666% 17px,
+                     66.666% 0, 100% 0, 100% 100%, 0 100%);
+  margin-top: -1px;
+}
+.stack-top--flip {
+  clip-path: polygon(0 0, 33.333% 0, 33.333% 17px, 66.666% 17px,
+                     66.666% 34px, 100% 34px, 100% 100%, 0 100%);
+}
+@media (max-width: 640px) {
+  .stack-top, .stack-top--flip {
+    clip-path: polygon(0 18px, 50% 18px, 50% 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* --- hero --- */
+.rp-hero { position: relative; min-height: clamp(340px, 46vw, 460px);
+           display: flex; align-items: flex-end; overflow: hidden; }
+.rp-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%;
+               object-fit: cover; }
+.rp-hero__scrim { position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(18,45,25,0.25) 0%, rgba(18,45,25,0.88) 78%); }
+.rp-hero__inner { position: relative; padding-top: 3rem; padding-bottom: 3rem; color: #fff; }
+.rp-hero h1 { color: #fff; font-size: clamp(2rem, 5.2vw, 3.3rem); max-width: 18ch; }
+.rp-hero__lede { color: rgba(255,255,255,0.9); max-width: 54ch; margin-top: 0.9rem;
+                 font-size: 1.05rem; }
+
+/* --- statement band on cream --- */
+.rp-statement { background: var(--cream); }
+
+/* --- pillars: deliberately unequal so it does not read as three boxes --- */
+.rp-pillar-grid { display: grid; gap: 1.2rem; margin-top: 1.8rem; }
+@media (min-width: 820px) {
+  .rp-pillar-grid { grid-template-columns: 1.35fr 1fr 1fr; align-items: start; }
+  .rp-pillar--wide { padding: 2.2rem var(--card-pad); }
+}
+.rp-pillar { padding: 1.6rem var(--card-pad-sm); border-top: 3px solid var(--green-700);
+             background: var(--green-50); border-radius: 0 0 var(--radius-md) var(--radius-md); }
+.rp-pillar--wide { background: var(--green-900); color: #fff; border-top-color: var(--gold); }
+.rp-pillar--wide h3, .rp-pillar--wide p { color: #fff; }
+.rp-pillar__n { font-family: var(--font-numeral); font-size: 0.95rem; letter-spacing: 0.1em;
+                color: var(--gold-dark); font-weight: 800; }
+.rp-pillar--wide .rp-pillar__n { color: var(--gold-light); }
+.rp-pillar h3 { margin: 0.35rem 0 0.5rem; font-size: 1.25rem; }
+.rp-pillar p { color: var(--muted); font-size: 0.97rem; }
+.rp-pillar--wide p { color: rgba(255,255,255,0.88); }
+
+/* A clipped edge is only visible where the section has its own background. */
+.rp-papers { background: var(--green-50); padding-top: calc(var(--section-md) + 34px); }
+
+/* --- placeholder cards --- */
+.rp-card-grid { display: grid; gap: 1.2rem; margin-top: 1.6rem; }
+@media (min-width: 720px) { .rp-card-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
+.rp-card { border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden;
+           background: #fff; }
+.rp-card__media { aspect-ratio: 16 / 9; background:
+  repeating-linear-gradient(135deg, var(--green-50) 0 14px, var(--green-100) 14px 28px); }
+.rp-card__body { padding: 1.2rem 1.3rem 1.4rem; }
+.rp-card__body h3 { font-size: 1.1rem; }
+.rp-card__body p { color: var(--muted); font-size: 0.95rem; margin: 0.4rem 0 0.8rem; }
+.rp-card__link { font-size: 0.9rem; font-weight: 600; color: var(--green-700); }
+.rp-card.is-placeholder { border-style: dashed; }
+.rp-card.is-placeholder .rp-card__link { color: var(--muted); }
+.rp-note { margin-top: 1rem; font-size: 0.88rem; color: var(--muted); font-style: italic; }
+
+/* --- recognition strip: awards, never mixed into the partner wall --- */
+/* Light background is not a style choice here: Points of Light is dark navy
+   and vanishes on green, and MAIA ships as a flat JPEG with a white field. */
+.rp-recognition { background: var(--cream); }
+.recog-strip { list-style: none; display: flex; flex-wrap: wrap; gap: 2.4rem;
+               align-items: center; justify-content: center; margin-top: 1.8rem; }
+.recog-strip img { max-height: 76px; width: auto; }
+
+/* ============================================================
+   Homepage hero — mosaic
+   Centred wordmark on the brand gradient, real photographs
+   scattered around it, coin/sprout line art behind everything.
+   ============================================================ */
+.hero-mosaic {
+  position: relative;
+  background: var(--brand-gradient);
+  padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(4rem, 9vw, 7rem);
+  min-height: clamp(580px, 78vh, 860px);
+  display: flex; align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* The pattern sits at 15% — measured against Origami's crane outlines, which
+   are only 20-40 levels above their field. Louder than this and it competes. */
+.hero-mosaic__pattern {
+  position: absolute; inset: -40px;
+  background: url("../images/pattern-coins.svg") repeat;
+  background-size: 320px 320px;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-mosaic__inner { position: relative; z-index: 2; text-align: center; width: 100%; }
+
+.hm-logo { width: clamp(64px, 9vw, 104px); height: auto; margin: 0 auto 1.1rem; display: block;
+           filter: drop-shadow(0 6px 18px rgba(10, 40, 20, 0.28)); }
+.hm-wordmark {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: clamp(1.9rem, 6.4vw, 4.6rem);
+  line-height: 1.05;
+  margin: 0 0 0.9rem;
+  text-shadow: 0 2px 22px rgba(12, 44, 22, 0.3);
+  /* the tracking adds a trailing gap; pull it back so the word stays centred */
+  text-indent: 0.16em;
+  /* no width cap: the tile corridor is clear, so the container governs.
+     Wraps to two lines on its own once the viewport is narrow. */
+  margin-left: auto; margin-right: auto;
+}
+.hm-est {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(0.82rem, 1.5vw, 0.98rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 1.4rem;
+}
+.hm-mission {
+  color: #fff;
+  font-size: clamp(1.02rem, 2vw, 1.3rem);
+  line-height: 1.55;
+  max-width: 44ch;
+  margin: 0 auto 2rem;
+  text-shadow: 0 1px 14px rgba(12, 44, 22, 0.34);
+}
+.hm-mission .hl { color: var(--gold-light); font-style: italic; }
+.hero-mosaic .hero-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+
+/* --- scattered photo tiles --- */
+.hero-mosaic__tiles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hm-tile { position: absolute; margin: 0; overflow: hidden; border-radius: 4px;
+           box-shadow: 0 14px 40px rgba(8, 34, 16, 0.3); }
+.hm-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Tiles are hidden by default and only placed once there is room for them,
+   so a phone gets a clean gradient instead of six cropped slivers. */
+.hm-tile { display: none; }
+@media (min-width: 1000px) {
+  .hm-tile { display: block; }
+  /* Tiles bleed off the left and right edges, which reads as deliberate.
+     Nothing is sliced through the middle of the composition. */
+  .hm-tile--a { top: 3%;    left: 19%;  width: 14%; aspect-ratio: 4/3; }
+  .hm-tile--f { top: 2%;    right: 23%; width: 13%; aspect-ratio: 16/10; }
+  .hm-tile--c { top: 5%;    right: -3%; width: 16%; aspect-ratio: 4/3; }
+  .hm-tile--b { bottom: 4%; left: -4%;  width: 17%; aspect-ratio: 4/3; }
+  .hm-tile--d { bottom: 6%; left: 21%;  width: 14%; aspect-ratio: 3/2; }
+  .hm-tile--e { bottom: 5%; right: 4%;  width: 14%; aspect-ratio: 3/2; }
+}
+@media (min-width: 1500px) {
+  .hm-tile--a { left: 21%; width: 12%; }
+  .hm-tile--b { left: 1%;  width: 15%; }
+  .hm-tile--c { right: 2%; width: 14%; }
+  .hm-tile--f { right: 25%; width: 12%; }
+}
+
+/* ============================================================
+   Recognition band
+   No chips: each badge is a transparent PNG sitting directly on
+   the band. It is a light band because three of the four marks are
+   dark ink drawn for white paper. MAIA is solid black and is simply
+   invisible on the green footer; PVSA's ring text and the Points of
+   Light sub-line go with it. A light band keeps all four legible
+   without recolouring anyone else's logo.
+   ============================================================ */
+.recognition-band {
+  background: var(--cream);
+  padding: clamp(2.2rem, 5vw, 3.2rem) 0;
+  border-top: 3px solid var(--gold);
+}
+.rb-label {
+  font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 600;
+  text-align: center; margin: 0 0 1.6rem;
+}
+.rb-list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem 1.4rem; align-items: start; justify-items: center;
+}
+@media (min-width: 760px) { .rb-list { grid-template-columns: repeat(4, 1fr); } }
+.rb-list li {
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+  text-align: center; max-width: 220px;
+}
+.rb-list img { height: 60px; width: auto; max-width: 100%; display: block; }
+.rb-list span { font-size: 0.8rem; line-height: 1.35; color: var(--ink); }
+
+/* ============================================================
+   Full-bleed statement band
+   Replaces a flat dark rectangle holding only text. The photo
+   carries the section; the green wash keeps the type readable.
+   ============================================================ */
+.bleed-statement {
+  position: relative;
+  min-height: clamp(360px, 46vw, 520px);
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.bleed-statement__bg { position: absolute; inset: 0; width: 100%; height: 100%;
+                       object-fit: cover; }
+/* Green duotone wash: ties the photograph to the palette and buys the
+   contrast the white type needs (measured over 4.5:1 across the text area). */
+.bleed-statement__wash {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(100deg, rgba(18,45,25,0.93) 0%, rgba(25,62,32,0.84) 46%, rgba(30,123,66,0.52) 100%),
+    linear-gradient(0deg, rgba(34,89,45,0.35), rgba(34,89,45,0.35));
+}
+.bleed-statement__inner { position: relative; z-index: 1; color: #fff;
+                          padding: clamp(2.6rem,6vw,4rem) 0; max-width: 100%; }
+.bleed-statement h2 {
+  color: #fff; font-size: clamp(1.8rem, 4.4vw, 3rem);
+  max-width: 17ch; margin: 0.5rem 0 0.9rem;
+}
+.bleed-statement p { color: rgba(255,255,255,0.93); max-width: 46ch; margin-bottom: 1.6rem; }
+
+/* ============================================================
+   Programme rows — alternating photo/text, never three matching cards
+   ============================================================ */
+.prog-rows { display: grid; gap: clamp(1.6rem, 4vw, 3rem); margin-top: 2rem; }
+.prog-row { display: grid; gap: clamp(1.1rem, 3vw, 2.4rem); align-items: center; }
+@media (min-width: 820px) {
+  .prog-row { grid-template-columns: 1.15fr 1fr; }
+  .prog-row--flip .prog-row__media { order: 2; }
+  .prog-row--flip .prog-row__text  { order: 1; }
+  /* Nudge alternate rows so the column edges do not line up like a table. */
+  .prog-row--flip { margin-left: clamp(0px, 4vw, 70px); }
+}
+.prog-row__media { margin: 0; overflow: hidden; border-radius: var(--radius-md);
+                   box-shadow: var(--shadow-card); }
+.prog-row__media img { width: 100%; height: 100%; aspect-ratio: 16/10;
+                       object-fit: cover; display: block; }
+.prog-row__text h3 { font-size: clamp(1.3rem, 2.6vw, 1.8rem); margin-bottom: 0.5rem; }
+.prog-row__text p { color: var(--muted); margin-bottom: 0.9rem; }
+
+/* ============================================================
+   Bio LinkedIn link
+   Sits on the dark bio hero, so it is an outlined gold pill rather
+   than LinkedIn blue, which would be the only cold colour on the site.
+   ============================================================ */
+.bio-linkedin {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  margin-top: 1.6rem;
+  padding: 0.62rem 1.25rem;
+  border: 1.5px solid var(--gold);
+  border-radius: var(--radius-pill);
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.bio-linkedin__icon { width: 18px; height: 18px; flex: 0 0 auto; }
+.bio-linkedin:hover,
+.bio-linkedin:focus-visible {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--green-950);
+}
+.bio-linkedin:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+/* ============================================================
+   Mobile overflow fixes
+   Grid and flex children default to min-width:auto, so they refuse to
+   shrink below their longest word. Switching the body face to Playfair
+   at 18px widened that content and pushed five pages past the viewport
+   (up to 471px at a 375px width). These let them shrink again.
+   ============================================================ */
+.feature, .feature-media, .story-row, .prog-row, .bio-grid,
+.grid, .grid-2, .grid-3, .form-grid, .footer-grid { min-width: 0; }
+.feature > *, .story-row > *, .prog-row > *, .bio-grid > *,
+.grid > *, .grid-2 > *, .grid-3 > *, .form-grid > *, .footer-grid > * { min-width: 0; }
+
+/* A fixed 340px card does not fit a 375px screen once padding is counted. */
+.quote-float { max-width: min(340px, 100%); }
+@media (max-width: 920px) {
+  .feature-media .quote-float { margin-left: auto; margin-right: auto; }
+}
+
+/* Inputs size themselves off a default character count, not the container. */
+.form-field input,
+.form-field select,
+.form-field textarea { width: 100%; max-width: 100%; }
+
+/* Long unbroken strings (URLs, emails) must not set the page width. */
+.r-quote, .bio-body p, .lede, .section-lede, .footer-grid a { overflow-wrap: anywhere; }
+img, svg, video, iframe { max-width: 100%; }
+
+/* On narrow screens the horizontal slide-in starts the element 34px outside
+   the viewport, so every un-revealed block below the fold adds ~10px of
+   horizontal scroll. Keep the fade, drop the sideways travel. */
+@media (max-width: 640px) {
+  .reveal--l, .reveal--r { transform: translateY(18px); }
+}
+/* The hero pattern is deliberately oversized; clip it rather than let its
+   box contribute to document width. */
+.hero-mosaic { overflow-x: clip; }

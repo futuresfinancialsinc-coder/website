@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Futures Financials Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;800&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Libre+Baskerville:wght@400;700&family=DM+Serif+Display&family=Lora:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g950:#122d19; --g900:#193e20; --g800:#22592d; --g700:#1e7b42;
+  --g600:#218f47; --g500:#2a843c; --g400:#37ae4f; --g300:#48c251; --g200:#5ed555;
+  --g100:#dff1e3; --g50:#f2f8f3;
+  --gold300:#fee051; --gold500:#f8a31c; --gold700:#d9a728; --gold900:#b8890f; --gold50:#faf3df;
+  --ink:#101612; --outline:#0b1612; --muted:#56675d; --line:#e3ebe6; --white:#fff;
+
+  --bg:#fbfcfb; --fg:var(--ink); --card:#fff; --rule:var(--line); --sub:var(--muted);
+  --body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1711; --fg:#e8f0ea; --card:#142019; --rule:#20342a; --sub:#9bb0a3;
+  }
+}
+:root[data-theme="dark"]{ --bg:#0d1711; --fg:#e8f0ea; --card:#142019; --rule:#20342a; --sub:#9bb0a3; }
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);
+     font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px 96px}
+h1,h2,h3{line-height:1.2;margin:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82em}
+
+/* ---- masthead ---- */
+.hero{background:linear-gradient(90deg,#5ed555 0%,#3eb452 34%,#30a34c 72%,#229145 100%);
+      color:#fff;padding:56px 0 48px;margin-bottom:48px}
+.hero .wrap{padding-bottom:0}
+.hero h1{font-family:"Playfair Display",Georgia,serif;font-weight:800;
+         font-size:clamp(2rem,6vw,3.2rem);letter-spacing:.01em}
+.hero p{margin:.6rem 0 0;max-width:62ch;color:rgba(255,255,255,.93)}
+.hero .meta{margin-top:1.4rem;font-size:.82rem;color:rgba(255,255,255,.8);
+            letter-spacing:.08em;text-transform:uppercase}
+
+section{margin:0 0 72px}
+h2{font-family:"Playfair Display",Georgia,serif;font-weight:700;
+   font-size:clamp(1.5rem,3.4vw,2.1rem);margin-bottom:.35rem}
+.lede{color:var(--sub);max-width:70ch;margin:0 0 1.8rem}
+h3{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+   color:var(--sub);margin:2.2rem 0 .9rem;font-weight:600}
+
+.card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:22px}
+.grid{display:grid;gap:14px}
+@media(min-width:720px){ .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:repeat(3,1fr)} }
+
+/* ---- swatches ---- */
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+.chip{border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--card)}
+.chip .fill{height:76px}
+.chip .lab{padding:10px 12px 12px}
+.chip .hex{font-family:ui-monospace,Menlo,monospace;font-size:.82rem;font-weight:600}
+.chip .role{font-size:.74rem;color:var(--sub);margin-top:2px;line-height:1.35}
+
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);font-weight:600}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.7rem;
+     font-weight:700;letter-spacing:.04em}
+.pass{background:#dff1e3;color:#17542a} .warn{background:#fdf0cf;color:#7a5600}
+.fail{background:#fbdcd8;color:#8a2318}
+
+/* ---- type specimens ---- */
+.spec{border:1px solid var(--rule);border-radius:14px;background:var(--card);
+      padding:22px;margin-bottom:14px}
+.spec .no{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sub)}
+.spec .nm{font-size:1.05rem;font-weight:700;margin:.15rem 0 .1rem}
+.spec .src{font-size:.76rem;color:var(--sub)}
+.spec .show{margin:16px 0 10px;padding:18px 0;border-top:1px solid var(--rule);
+            border-bottom:1px solid var(--rule)}
+.spec .big{font-size:clamp(1.6rem,4.6vw,2.5rem);line-height:1.12;margin:0 0 .45rem}
+.spec .small{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75;margin:0}
+.spec .why{font-size:.9rem;color:var(--sub);margin:0}
+.pf{font-family:"Playfair Display",Georgia,serif}
+.fr{font-family:"Fraunces",Georgia,serif}
+.lb{font-family:"Libre Baskerville",Georgia,serif}
+.dm{font-family:"DM Serif Display",Georgia,serif}
+.lo{font-family:"Lora",Georgia,serif}
+.rec{display:inline-block;background:var(--g600);color:#fff;font-size:.68rem;font-weight:700;
+     letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;
+     margin-left:8px;vertical-align:middle}
+
+ul{margin:.4rem 0 0;padding-left:1.1rem} li{margin:.3rem 0}
+.do li::marker{color:var(--g600)} .dont li::marker{color:#c0392b}
+img.asset{width:100%;height:auto;border-radius:10px;border:1px solid var(--rule);display:block}
+pre{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px;
+    overflow-x:auto;font-size:.78rem;line-height:1.65}
+.note{border-left:3px solid var(--gold700);background:var(--gold50);color:#4a3a12;
+      padding:12px 16px;border-radius:0 10px 10px 0;font-size:.9rem;margin:1rem 0}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .note{background:#2a2414;color:#e8dcb8} }
+footer{color:var(--sub);font-size:.84rem;border-top:1px solid var(--rule);padding-top:20px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Futures Financials</h1>
+    <p>Brand guidelines — color, type, logo and asset specs. Every value here was sampled from the
+       actual logo artwork or measured against the live site, not chosen by eye.</p>
+    <div class="meta">Version 1 &nbsp;·&nbsp; November 2026 &nbsp;·&nbsp; EIN 33-1515809</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ============ VIBE ============ -->
+<section>
+  <h2>The vibe</h2>
+  <p class="lede">Youth-led, but never amateur. The organization is run by high school students and
+  reaches 15,000+ of them — so the brand has to earn trust with principals, funders and reporters
+  while still looking like something a teenager would actually follow.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0">We are</h3>
+      <ul class="do">
+        <li><strong>Credible first.</strong> Finance is the subject. Nothing can look improvised.</li>
+        <li><strong>Warm, not corporate.</strong> Growth, not banks. The mark is a plant, not a vault.</li>
+        <li><strong>Plain-spoken.</strong> Short sentences, real numbers, no jargon.</li>
+        <li><strong>Evidence-led.</strong> 15,000 students. 70+ schools. 7 countries. Say the number.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">We are not</h3>
+      <ul class="dont">
+        <li><strong>A startup.</strong> No neon gradients, no 3D blobs, no "disrupting."</li>
+        <li><strong>A bank.</strong> No navy-and-grey, no stock handshakes, no skylines.</li>
+        <li><strong>A school club.</strong> No clip art, no Comic Sans energy, no rainbow palettes.</li>
+        <li><strong>Vague.</strong> "Empowering the next generation" says nothing. Cut it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note"><strong>The one-line test.</strong> If a superintendent and a sixteen-year-old
+  would both take it seriously, it's on brand. If only one of them would, it isn't.</div>
+</section>
+
+<!-- ============ COLOR ============ -->
+<section>
+  <h2>Color</h2>
+  <p class="lede">Two families only: a green spine and a gold accent, over near-black and off-white
+  neutrals. Every hex below was pulled out of the logo artwork by sorting its pixels by hue and
+  taking the median of each group — so these are the colors the mark actually contains.</p>
+
+  <h3>Core green</h3>
+  <div class="sw">
+    <div class="chip"><div class="fill" style="background:#122d19"></div><div class="lab"><div class="hex">#122d19</div><div class="role">green-950 — deepest. Footers, photo overlays.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#193e20"></div><div class="lab"><div class="hex">#193e20</div><div class="role">green-900 — hero overlays, dark sections.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#22592d"></div><div class="lab"><div class="hex">#22592d</div><div class="role">green-800 — deep section backgrounds.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#1e7b42"></div><div class="lab"><div class="hex">#1e7b42</div><div class="role">green-700 — <strong>primary brand green</strong>. Buttons, links.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#218f47"></div><div class="lab"><div class="hex">#218f47</div><div class="role">green-600 — sampled from the logo leaves.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#37ae4f"></div><div class="lab"><div class="hex">#37ae4f</div><div class="role">green-400 — hover states, gradient midpoint.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#48c251"></div><div class="lab"><div class="hex">#48c251</div><div class="role">green-300 — logo leaf highlight. Backgrounds only.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#5ed555"></div><div class="lab"><div class="hex">#5ed555</div><div class="role">green-200 — brightest. Gradient start only.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#dff1e3"></div><div class="lab"><div class="hex">#dff1e3</div><div class="role">green-100 — pills and tints on white.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#f2f8f3"></div><div class="lab"><div class="hex">#f2f8f3</div><div class="role">green-50 — alternating page sections.</div></div></div>
+  </div>
+
+  <h3>Gold accent</h3>
+  <div class="sw">
+    <div class="chip"><div class="fill" style="background:#fee051"></div><div class="lab"><div class="hex">#fee051</div><div class="role">gold-300 — logo coin highlight. Type on deep green.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#f8a31c"></div><div class="lab"><div class="hex">#f8a31c</div><div class="role">gold-500 — <strong>true brand gold</strong>, from the coins.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#d9a728"></div><div class="lab"><div class="hex">#d9a728</div><div class="role">gold-700 — current site token. Rules and icons.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#b8890f"></div><div class="lab"><div class="hex">#b8890f</div><div class="role">gold-900 — the only gold safe as text on white.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#faf3df"></div><div class="lab"><div class="hex">#faf3df</div><div class="role">gold-50 — warm tint for callouts.</div></div></div>
+  </div>
+
+  <h3>Neutrals</h3>
+  <div class="sw">
+    <div class="chip"><div class="fill" style="background:#101612"></div><div class="lab"><div class="hex">#101612</div><div class="role">ink — all body text on light.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#0b1612"></div><div class="lab"><div class="hex">#0b1612</div><div class="role">outline — logo stroke colour. Illustration only.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#56675d"></div><div class="lab"><div class="hex">#56675d</div><div class="role">muted — captions, secondary text.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#e3ebe6"></div><div class="lab"><div class="hex">#e3ebe6</div><div class="role">line — borders and dividers.</div></div></div>
+    <div class="chip"><div class="fill" style="background:#ffffff;border-bottom:1px solid var(--rule)"></div><div class="lab"><div class="hex">#ffffff</div><div class="role">white — default page background.</div></div></div>
+  </div>
+
+  <div class="note"><strong>There is a gap between the logo and the old site tokens, and it is real.</strong>
+  The logo's gold is <code>#f8a31c</code>; the site has been using <code>#d9a728</code>, which is duller and
+  browner. The logo's greens are brighter than <code>#2a843c</code>. Keep both ranges — the bright values for
+  artwork and gradients, the deep values for interface and text — but stop treating them as the same color.</div>
+
+  <h3>The gradient</h3>
+  <p class="lede" style="margin-bottom:1rem">One recipe, used on the LinkedIn banner, the experience card
+  and any future social template. Always horizontal — no vertical component, no diagonal.</p>
+  <div style="height:88px;border-radius:12px;border:1px solid var(--rule);
+       background:linear-gradient(90deg,#5ed555 0%,#3eb452 34%,#30a34c 72%,#229145 100%)"></div>
+  <pre>background: linear-gradient(90deg, #5ed555 0%, #3eb452 34%, #30a34c 72%, #229145 100%);</pre>
+
+  <h3>Contrast — what is actually legible</h3>
+  <p class="lede" style="margin-bottom:1rem">Measured WCAG ratios. This is the part most brand guides skip
+  and then everyone wonders why the website feels hard to read.</p>
+  <table>
+    <tr><th>Foreground</th><th>Background</th><th>Ratio</th><th>Verdict</th></tr>
+    <tr><td>White</td><td><code>#193e20</code> green-900</td><td>11.99</td><td><span class="tag pass">AAA — anything</span></td></tr>
+    <tr><td>White</td><td><code>#22592d</code> green-800</td><td>8.28</td><td><span class="tag pass">AAA — anything</span></td></tr>
+    <tr><td>White</td><td><code>#1e7b42</code> green-700</td><td>5.29</td><td><span class="tag pass">AA — body text OK</span></td></tr>
+    <tr><td>White</td><td><code>#218f47</code> green-600</td><td>4.13</td><td><span class="tag warn">Large text only (18pt+)</span></td></tr>
+    <tr><td>White</td><td><code>#37ae4f</code> green-400</td><td>2.87</td><td><span class="tag fail">Never put text here</span></td></tr>
+    <tr><td>White</td><td><code>#48c251</code> green-300</td><td>2.30</td><td><span class="tag fail">Never put text here</span></td></tr>
+    <tr><td><code>#fee051</code> gold-300</td><td><code>#193e20</code> green-900</td><td>9.13</td><td><span class="tag pass">AAA — the best gold pairing</span></td></tr>
+    <tr><td><code>#f8a31c</code> gold-500</td><td><code>#193e20</code> green-900</td><td>5.85</td><td><span class="tag pass">AA — body text OK</span></td></tr>
+    <tr><td><code>#d9a728</code> gold-700</td><td>White</td><td>2.21</td><td><span class="tag fail">Gold is not a text colour on white</span></td></tr>
+    <tr><td><code>#b8890f</code> gold-900</td><td>White</td><td>3.17</td><td><span class="tag warn">Large text only</span></td></tr>
+    <tr><td><code>#101612</code> ink</td><td>White</td><td>18.33</td><td><span class="tag pass">AAA</span></td></tr>
+    <tr><td><code>#56675d</code> muted</td><td>White</td><td>6.01</td><td><span class="tag pass">AA</span></td></tr>
+  </table>
+  <p class="lede" style="margin-top:1rem"><strong>The rule that falls out of this table:</strong> the bright
+  greens are for backgrounds and artwork. The moment you need someone to read a sentence, you are on
+  <code>#1e7b42</code> or darker.</p>
+</section>
+
+<!-- ============ TYPE ============ -->
+<section>
+  <h2>Typography</h2>
+  <p class="lede"><strong>Display face: Playfair Display.</strong> Chosen 1 November 2026. The decision
+  came out of reading the live <code>font-family</code> on the three nonprofits you referenced — two of the
+  three run Playfair Display, and the third runs the sans Futures Financials already self-hosts.</p>
+
+  <table style="margin-bottom:1.6rem">
+    <tr><th>Organization</th><th>Headings</th><th>Body</th></tr>
+    <tr><td>Origami For Good</td><td>Playfair Display</td><td>Playfair Display (site-wide)</td></tr>
+    <tr><td>FLY to the World</td><td>Playfair Display</td><td>Old Standard TT</td></tr>
+    <tr><td>Cancer Kids First</td><td colspan="2">Open Sauce One — the same sans Futures Financials already self-hosts</td></tr>
+    <tr><td>Futures Financials (live today)</td><td>Open Sauce One Bold</td><td>Open Sauce One</td></tr>
+  </table>
+
+  <div class="note"><strong>Important licensing note on the assets I built.</strong> The LinkedIn banner and
+  experience card were rendered in <strong>Bodoni 72</strong> and <strong>Big Caslon</strong>, which ship with
+  macOS. Those are fine for images you export yourself, but they cannot be embedded on the website or handed
+  to a designer on Windows. Playfair Display is now the brand face, so the artwork needs re-rendering in it before the
+  images and the site can match.</div>
+
+  <h3>Chosen: Playfair Display. The other four are kept here as the record of what was weighed.</h3>
+
+  <div class="spec">
+    <div class="no">Option 1</div>
+    <div class="nm pf">Playfair Display <span class="rec">Chosen</span></div>
+    <div class="src">Google Fonts · free · 400–900 + italics</div>
+    <div class="show">
+      <p class="big pf" style="font-weight:800">Financial confidence for every student</p>
+      <p class="small pf">Futures Financials · Nonprofit</p>
+    </div>
+    <p class="why">What Origami For Good and FLY to the World both use, and the closest free web equivalent
+    to the Bodoni I rendered your banner and card in. High contrast, lots of weights, proven in exactly this
+    peer group. Safest choice — and the only one that makes the existing artwork portable without a redesign.</p>
+  </div>
+
+  <div class="spec">
+    <div class="no">Option 2</div>
+    <div class="nm fr">Fraunces</div>
+    <div class="src">Google Fonts · free · variable, with optional "wonk" and soft axes</div>
+    <div class="show">
+      <p class="big fr" style="font-weight:700">Financial confidence for every student</p>
+      <p class="small fr">Futures Financials · Nonprofit</p>
+    </div>
+    <p class="why">The playful-but-serious option. Old-style bones with deliberately quirky details you can
+    dial up or down. This is the one that would make you look different from every other youth nonprofit
+    instead of adjacent to them. Costs you the instant familiarity of Playfair.</p>
+  </div>
+
+  <div class="spec">
+    <div class="no">Option 3</div>
+    <div class="nm lb">Libre Baskerville</div>
+    <div class="src">Google Fonts · free · already sitting in your <code>/fonts</code> folder</div>
+    <div class="show">
+      <p class="big lb" style="font-weight:700">Financial confidence for every student</p>
+      <p class="small lb">Futures Financials · Nonprofit</p>
+    </div>
+    <p class="why">Sturdy and bookish. Lower contrast than the others, which means it survives small sizes
+    and bad phone screens where Playfair's hairlines start to disappear. The most "institution," the least
+    "fashion." You already have the files, so it ships today with zero new downloads.</p>
+  </div>
+
+  <div class="spec">
+    <div class="no">Option 4</div>
+    <div class="nm dm">DM Serif Display</div>
+    <div class="src">Google Fonts · free · display weight only</div>
+    <div class="show">
+      <p class="big dm">Financial confidence for every student</p>
+      <p class="small dm">Futures Financials · Nonprofit</p>
+    </div>
+    <p class="why">High contrast and very clean — crisper than Playfair at large sizes, with friendlier
+    curves. One weight only, so it is strictly a headline face and leans entirely on Open Sauce One
+    underneath. Great for big statements, no use for anything small.</p>
+  </div>
+
+  <div class="spec">
+    <div class="no">Option 5</div>
+    <div class="nm lo">Lora</div>
+    <div class="src">Google Fonts · free · 400–700 + italics</div>
+    <div class="show">
+      <p class="big lo" style="font-weight:600">Financial confidence for every student</p>
+      <p class="small lo">Futures Financials · Nonprofit</p>
+    </div>
+    <p class="why">The warmest of the five, with calligraphic roots and moderate contrast. Reads approachable
+    rather than formal. Best pick if you think the didones look too stiff for an organization run by
+    teenagers — but it gives up some of the gravitas that sells the finance side.</p>
+  </div>
+
+  <h3>Body text — not a choice, keep it</h3>
+  <div class="card">
+    <p style="margin-top:0"><strong>Open Sauce One</strong> — already self-hosted at 400 / 500 / 700 / 800 in
+    <code>/fonts</code>, and it happens to be the exact face Cancer Kids First runs. It is a clean geometric
+    humanist sans that stays out of the way of a serif headline. No reason to change it.</p>
+    <p style="margin-bottom:0"><strong>Retire Baloo 2.</strong> It is currently the display font and it will
+    fight whichever serif you pick. Either drop it entirely or demote it to big impact numerals only
+    (the "15,000+" treatment) and nothing else.</p>
+  </div>
+
+  <h3>Type rules</h3>
+  <div class="card">
+    <ul class="do" style="margin-top:0">
+      <li><strong>Headlines:</strong> serif, sentence case. Never all-caps for a full sentence.</li>
+      <li><strong>Wordmark lockups:</strong> all-caps, letterspaced 0.12–0.18em, with a hairline rule beneath.</li>
+      <li><strong>Small labels:</strong> all-caps, letterspaced 0.2em, 11–13px. Use for "NONPROFIT",
+          section eyebrows, stat captions.</li>
+      <li><strong>Body:</strong> Open Sauce One 400, 16–18px, line-height 1.6, max 70 characters per line.</li>
+      <li><strong>Em dashes:</strong> use them in prose, not in page titles. Titles use a pipe:
+          <code>Futures Financials | About Us</code>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ LOGO ============ -->
+<section>
+  <h2>Logo</h2>
+  <p class="lede">A coin sprouting from a stack of gold — growth, not storage. Keep it full colour
+  wherever possible.</p>
+
+  <div class="grid g2">
+    <div><img class="asset" src="ff-logo-1080.jpg" alt="Futures Financials logo: a dollar coin on a stem with two leaves, growing from a stack of gold bars, on a green field"></div>
+    <div class="card">
+      <h3 style="margin-top:0">Rules</h3>
+      <ul class="do">
+        <li><strong>Clear space:</strong> keep at least the height of the top coin empty on all four sides.</li>
+        <li><strong>Minimum size:</strong> 48px tall on screen, 0.6in in print. Below that the sparkles
+            fill in and it turns to mush.</li>
+        <li><strong>Backgrounds:</strong> full colour on white, on <code>#f2f8f3</code>, or on any green
+            from the palette. It reads on all of them.</li>
+        <li><strong>Cut-outs:</strong> use the transparent PNG. Never place the square green version on
+            a different green — the two fields will not match.</li>
+      </ul>
+      <h3>Never</h3>
+      <ul class="dont">
+        <li>Flatten it to one colour. The detail is defined by colour, not by outline, so a white or gold
+            silhouette collapses into a blob. I tested this; it does not work.</li>
+        <li>Recolour the coins. Gold is doing the work.</li>
+        <li>Add a drop shadow, outer glow or stroke.</li>
+        <li>Stretch, rotate or crop it.</li>
+        <li>Set it on a photo without a disc or panel behind it.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PATTERN ============ -->
+<section>
+  <h2>Pattern &amp; motif</h2>
+  <p class="lede">The background texture on every branded asset is built from the logo's own vocabulary —
+  coins marked <code>$</code>, two-leaf sprouts, coin stacks and sparkle bursts, drawn as outlines only.</p>
+  <div class="card">
+    <ul class="do" style="margin-top:0">
+      <li><strong>Colour:</strong> white outline, <strong>14–17% opacity</strong>, never higher. Measured
+          against Origami For Good's crane pattern, whose outlines sit only 20–40 levels above their
+          background — the restraint is the whole effect.</li>
+      <li><strong>Stroke:</strong> ~1.9px at 1× resolution.</li>
+      <li><strong>Scale:</strong> shapes between 9% and 16% of the canvas height, rotated freely,
+          allowed to run off the edges.</li>
+      <li><strong>Density:</strong> scattered, never tiled on a visible grid.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ASSETS ============ -->
+<section>
+  <h2>Asset specs</h2>
+
+  <h3>LinkedIn company banner — 1128 × 191</h3>
+  <img class="asset" src="ff-banner-bright-1128x191.png" alt="Futures Financials LinkedIn banner: duotoned classroom photo on the left third, bright green gradient on the right with the logo and wordmark">
+  <p class="lede" style="margin-top:.8rem">Photo panel 35%, brand panel 65%. The photo is duotoned onto a
+  single green luminance ramp so multiple classrooms read as one field rather than a contact sheet. No text
+  on the left — LinkedIn's own logo tile sits there.</p>
+
+  <h3>LinkedIn experience / organization media — 960 × 540</h3>
+  <img class="asset" src="ff-linkedin-card-v2-960x540.png" alt="Futures Financials experience card: a bright green badge disc with the logo and wordmark, centred on a green field with a Greek key border and scattered outlined coin motifs">
+  <p class="lede" style="margin-top:.8rem">Badge centred, radius 154px. Key bands inset 42px top and bottom.
+  The disc must stay the brightest element on the card — if it matches the field, only the ring shows.</p>
+
+  <h3>Other sizes</h3>
+  <table>
+    <tr><th>Use</th><th>Size</th><th>Notes</th></tr>
+    <tr><td>LinkedIn company banner</td><td>1128 × 191</td><td>Logo tile covers the lower left</td></tr>
+    <tr><td>LinkedIn experience media</td><td>1920 × 1080</td><td>16:9; 960 × 540 also accepted</td></tr>
+    <tr><td>Open Graph / link preview</td><td>1200 × 627</td><td>Keep text inside the middle 80%</td></tr>
+    <tr><td>Instagram square</td><td>1080 × 1080</td><td>Badge layout works unchanged</td></tr>
+    <tr><td>Favicon</td><td>32 / 192 / 512</td><td>Coin only — the full mark is unreadable this small</td></tr>
+  </table>
+</section>
+
+<!-- ============ TOKENS ============ -->
+<section>
+  <h2>CSS tokens</h2>
+  <p class="lede">Paste into <code>css/styles.css</code>. The names match what is already in the stylesheet
+  where they overlap, so this extends rather than replaces.</p>
+<pre>:root{
+  /* green — spine */
+  --green-950:#122d19;  --green-900:#193e20;  --green-800:#22592d;
+  --green-700:#1e7b42;  /* primary brand green */
+  --green-600:#218f47;  --green-400:#37ae4f;  --green-300:#48c251;
+  --green-200:#5ed555;  --green-100:#dff1e3;  --green-50:#f2f8f3;
+
+  /* gold — accent */
+  --gold-300:#fee051;   --gold-500:#f8a31c;   /* true brand gold */
+  --gold-700:#d9a728;   --gold-900:#b8890f;   --gold-50:#faf3df;
+
+  /* neutral */
+  --ink:#101612;  --outline:#0b1612;  --muted:#56675d;
+  --line:#e3ebe6; --white:#ffffff;
+
+  /* brand gradient — horizontal only */
+  --brand-gradient:linear-gradient(90deg,#5ed555 0%,#3eb452 34%,#30a34c 72%,#229145 100%);
+
+  /* type */
+  --font-display:"Playfair Display",Georgia,serif;
+  --font-body:"Open Sauce One",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}</pre>
+</section>
+
+<footer>
+  <p><strong>Decided 1 November 2026:</strong> Playfair Display is the display face.
+  <strong>Still open:</strong> re-render the banner and card in it, self-host the woff2 into
+  <code>/fonts</code>, swap <code>--font-display</code> in <code>css/styles.css</code>, and retire Baloo 2.</p>
+  <p><strong>Before deploying:</strong> <code>NEW BRANDING/</code> is not listed in
+  <code>.vercelignore</code>, so these internal files would publish to the live domain on the next push.</p>
+  <p>Colors sampled from <code>ff-logo-1080.jpg</code> by hue-bucketing its pixels and taking the median of
+  each group. Contrast ratios computed to WCAG 2.1. Peer typefaces read from the live
+  <code>font-family</code> on each organization's own site, 1 November 2026.</p>
+</footer>
+
+</div>
+</body>
+</html>

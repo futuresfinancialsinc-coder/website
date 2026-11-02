@@ -60,7 +60,7 @@
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="/">
-      <img class="logo-img" src="images/logo-mark.png" alt="Futures Financials logo" />
+      <img class="logo-img" src="images/logo-2026-mark.png" alt="Futures Financials logo" />
       <span class="brand-name">Futures Financials <span class="brand-inc">Inc.</span></span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰<span class="sr-only">Menu</span></button>
@@ -80,6 +80,7 @@
           <ul class="dropdown">
             <li><a href="/impact">Impact</a></li>
             <li><a href="/success-stories">Success Stories</a></li>
+            <li><a href="/research-policy">Research &amp; Policy</a></li>
             <li><a href="/media">In the News</a></li>
           </ul>
         </li>
@@ -98,18 +99,32 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero hero--photo" role="img" aria-label="Futures Financials volunteers leading a financial literacy lesson in a classroom">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__scrim" aria-hidden="true"></div>
-    <div class="container">
-      <div class="hero-inner">
-        <h1 class="display hero-anim" style="--i: 1"><span class="sr-only">Futures Financials: </span>Financial confidence for every student, everywhere.</h1>
-        <p class="lede hero-anim" style="--i: 2">Futures Financials brings hands-on, student-led financial education to classrooms and communities across 7 countries, because every student deserves to understand money before they need to use it.</p>
-        <div class="hero-actions hero-anim" style="--i: 3">
-          <a class="btn btn-outline-light" href="/impact">Learn More</a>
-          <a class="btn btn-gold" href="/volunteer">Get Involved</a>
-        </div>
+  <!-- HERO — centred wordmark on the brand gradient, photo tiles scattered
+       around it, coin/sprout line art behind. Modelled on the Origami For Good
+       opening, rebuilt in our palette with our own photographs. -->
+  <section class="hero-mosaic">
+    <div class="hero-mosaic__pattern" aria-hidden="true"></div>
+
+    <div class="hero-mosaic__tiles" aria-hidden="true">
+      <figure class="hm-tile hm-tile--a"><img src="images/session-entrepreneurs.jpg" alt="" loading="eager" /></figure>
+      <figure class="hm-tile hm-tile--b"><img src="images/students-engaged.jpg" alt="" loading="eager" /></figure>
+      <figure class="hm-tile hm-tile--c"><img src="images/session-library.jpg" alt="" loading="lazy" /></figure>
+      <figure class="hm-tile hm-tile--d"><img src="images/session-delayed-gratification.jpg" alt="" loading="lazy" /></figure>
+      <figure class="hm-tile hm-tile--e"><img src="images/session-forms-of-money.jpg" alt="" loading="lazy" /></figure>
+      <figure class="hm-tile hm-tile--f"><img src="images/press-filming.jpg" alt="" loading="lazy" /></figure>
+    </div>
+
+    <div class="container hero-mosaic__inner">
+      <img class="hm-logo hero-anim" style="--i: 1" src="images/logo-2026.png"
+           alt="Futures Financials logo: a dollar coin sprouting from a stack of gold bars" />
+      <h1 class="hm-wordmark hero-anim" style="--i: 2">Futures Financials</h1>
+      <p class="hm-est hero-anim" style="--i: 3">est. 2022 &nbsp;·&nbsp; a 501(c)(3) nonprofit</p>
+      <p class="hm-mission hero-anim" style="--i: 4">Teaching the
+        <span class="hl">money skills</span> schools leave out, using pop culture to reach young
+        people through interactive curricula, policy, and research.</p>
+      <div class="hero-actions hero-anim" style="--i: 5">
+        <a class="btn btn-outline-light" href="/impact">Learn More</a>
+        <a class="btn btn-gold" href="/volunteer">Get Involved</a>
       </div>
     </div>
   </section>
@@ -231,18 +246,16 @@
   </section>
 
   <!-- MISSION -->
-  <section class="section section--dark on-dark">
-    <div class="container">
-      <div class="section-head center">
-        <span class="tag">Our Mission</span>
-        <h2 class="section-title">Educating the next generation of confident, capable decision-makers</h2>
-      </div>
-      <div class="quote-band">
-        <p class="callout-serif">“Financial <span class="hl">confidence</span> starts with financial <span class="hl">knowledge</span>.”</p>
-      </div>
-      <div class="cta-actions" style="margin-top: 2.5rem;">
-        <a class="btn btn-outline-light" href="/about-us">About Us</a>
-      </div>
+  <section class="bleed-statement">
+    <img class="bleed-statement__bg" src="images/session-financial-literacy.jpg"
+         alt="Three Futures Financials volunteers presenting a financial literacy lesson to a classroom" loading="lazy" />
+    <div class="bleed-statement__wash" aria-hidden="true"></div>
+    <div class="container bleed-statement__inner">
+      <span class="tag">Our Mission</span>
+      <h2>Students listen to other students.</h2>
+      <p>Every lesson is written and taught by someone close enough in age to remember
+         not knowing. That is the whole method.</p>
+      <a class="btn btn-outline-light" href="/about-us">About Us</a>
     </div>
   </section>
 
@@ -281,28 +294,37 @@
         <h2 class="section-title">Real-world skills, taught by students who get it</h2>
         <p class="lede">From budgeting basics to entrepreneurship, our three flagship programs meet students exactly where they are.</p>
       </div>
-      <div class="grid grid-3">
-        <article class="card">
-          <img class="program-img" src="images/illo-program-foundations.jpg" alt="Stylized illustration of a budgeting notebook, a jar of coins, and a young plant" loading="lazy" />
-          <h3>Financial Foundations</h3>
-          <p>Budgeting, saving, and the basics of smart money habits, built for middle schoolers.</p>
-          <a class="arrow-link" href="/programs">Explore <span class="arrow">→</span></a>
+      <div class="prog-rows">
+        <article class="prog-row">
+          <figure class="prog-row__media">
+            <img src="images/session-budget.jpg" alt="A volunteer teaching a budgeting lesson to a classroom of younger students" loading="lazy" />
+          </figure>
+          <div class="prog-row__text">
+            <h3>Financial Foundations</h3>
+            <p>Budgeting, saving, and the basics of smart money habits. Built for middle schoolers.</p>
+            <a class="arrow-link" href="/programs">Explore <span class="arrow">&rarr;</span></a>
+          </div>
         </article>
-        <article class="card">
-          <img class="program-img" src="images/illo-program-entrepreneurs.jpg" alt="Stylized illustration of a small market stand with a cash box and jars of goods" loading="lazy" />
-          <h3>Young Entrepreneurs</h3>
-          <p>Turning student ideas into real pitches: mindset, marketing, and how to sell it.</p>
-          <a class="arrow-link" href="/programs">Explore <span class="arrow">→</span></a>
+        <article class="prog-row prog-row--flip">
+          <figure class="prog-row__media">
+            <img src="images/session-scenario.jpg" alt="Two volunteers running a spending scenario exercise at the front of a classroom" loading="lazy" />
+          </figure>
+          <div class="prog-row__text">
+            <h3>Young Entrepreneurs</h3>
+            <p>Turning student ideas into real pitches. Mindset, marketing, and how to sell it.</p>
+            <a class="arrow-link" href="/programs">Explore <span class="arrow">&rarr;</span></a>
+          </div>
         </article>
-        <article class="card">
-          <img class="program-img" src="images/illo-program-moneyskills.jpg" alt="Stylized illustration of a bank card, piggy bank, keys, and calculator" loading="lazy" />
-          <h3>Real-World Money Skills</h3>
-          <p>Credit, investing, and loans: the practical knowledge every high schooler needs.</p>
-          <a class="arrow-link" href="/programs">Explore <span class="arrow">→</span></a>
+        <article class="prog-row">
+          <figure class="prog-row__media">
+            <img src="images/session-tradeoff.jpg" alt="Volunteers asking a class what a trade-off means" loading="lazy" />
+          </figure>
+          <div class="prog-row__text">
+            <h3>Real-World Money Skills</h3>
+            <p>Credit, investing, and loans. The practical knowledge every high schooler needs.</p>
+            <a class="arrow-link" href="/programs">Explore <span class="arrow">&rarr;</span></a>
+          </div>
         </article>
-      </div>
-      <div class="cta-actions" style="margin-top: 2.5rem;">
-        <a class="btn btn-outline" href="/programs">Explore All Programs</a>
       </div>
     </div>
   </section>
@@ -384,22 +406,27 @@
 
 </main>
 
+<section class="recognition-band">
+  <div class="container">
+    <p class="rb-label">Recognition</p>
+    <ul class="rb-list">
+      <li><img src="images/gra-badge.png" alt="Global Recognition Awards" loading="lazy" /><span>Global Recognition Awards</span></li>
+      <li><img src="images/partners/pvsa.png" alt="President&#39;s Volunteer Service Award" loading="lazy" /><span>President&#39;s Volunteer Service Award</span></li>
+      <li><img src="images/partners/maia.png" alt="Money Awareness and Inclusion Awards" loading="lazy" /><span>Money Awareness &amp; Inclusion Awards</span></li>
+      <li><img src="images/partners/points-of-light.png" alt="Daily Point of Light Award" loading="lazy" /><span>Daily Point of Light Award</span></li>
+    </ul>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="/">
-          <img class="logo-img" src="images/logo-mark.png" alt="Futures Financials logo"  loading="lazy" />
+          <img class="logo-img" src="images/logo-2026-mark.png" alt="Futures Financials logo"  loading="lazy" />
           <span class="brand-name">Futures Financials <span class="brand-inc">Inc.</span></span>
         </a>
         <p>Making financial literacy accessible, engaging, and practical for students everywhere.</p>
-        <div class="footer-award">
-          <img src="images/gra-badge.png" alt="Global Recognition Awards badge" loading="lazy" />
-          <div class="footer-award__text">
-            <span class="fa-title">Global Recognition Awards</span>
-            <span class="fa-sub">Honored 2025 &amp; 2026</span>
-          </div>
-        </div>
       </div>
       <div>
         <h4>Explore</h4>

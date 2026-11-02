@@ -2,3 +2,12 @@
 **/.DS_Store
 .vercel
 .env*
+
+# Un-blurred photo originals. These show identifiable minors and exist only as a
+# local undo for the face-blurring pass. They must never reach the repo or the
+# live domain.
+images/_originals/
+
+# Raw photo and video library (190 photos, 62 videos of students). Working
+# material, not site content.
+Futures Financials Photos/
