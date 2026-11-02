@@ -289,6 +289,9 @@ h3 { font-size: 1.2rem; }
   min-height: 110px; padding: 1.1rem 1.4rem;
 }
 .logo-tile img { height: 52px; width: auto; max-width: 82%; object-fit: contain; }
+/* A square mark reads much smaller than a wordmark at a shared height, so the
+   square partner logos get extra height to match the others optically. */
+.logo-tile--square img { height: 74px; }
 
 /* ------------------------------------------------------------
    Header / navigation
