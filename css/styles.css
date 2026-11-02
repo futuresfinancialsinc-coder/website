@@ -63,6 +63,10 @@
   --radius-pill: 999px;
 
   --shadow-card: 0 6px 24px rgba(16, 22, 18, 0.07);
+  /* Measured height of the sticky header; the hero subtracts it so the
+     first screen is entirely hero with no section leaking in below. */
+  --header-h: 71px;
+
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-numeral: "Playfair Display", Georgia, serif;
   --font-body: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -1844,7 +1848,10 @@ h1 .hl,
   position: relative;
   background: var(--brand-gradient);
   padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(4rem, 9vw, 7rem);
-  min-height: clamp(580px, 78vh, 860px);
+  /* Fill the first screen exactly. svh rather than vh so mobile browser
+     chrome does not leave a strip of the next section showing. */
+  min-height: max(560px, calc(100vh - var(--header-h)));
+  min-height: max(560px, calc(100svh - var(--header-h)));
   display: flex; align-items: center;
   overflow: hidden;
   isolation: isolate;
