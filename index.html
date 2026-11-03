@@ -102,7 +102,7 @@
   <!-- HERO — centred wordmark on the brand gradient, photo tiles scattered
        around it, coin/sprout line art behind. Modelled on the Origami For Good
        opening, rebuilt in our palette with our own photographs. -->
-  <section class="hero-mosaic">
+  <section class="hero-mosaic" data-hero>
     <div class="hero-mosaic__pattern" aria-hidden="true"></div>
 
     <div class="hero-mosaic__tiles" aria-hidden="true">
@@ -135,7 +135,7 @@
       <div class="gap-head">
         <span class="tag">The Problem</span>
         <h2 class="section-title" id="gap-heading" style="margin: 1rem 0;">In 20 states, students can graduate without ever learning how money works.</h2>
-        <p class="lede">Only 30 of 50 states guarantee every public high school student a personal finance course before graduation. Everywhere else, learning about money is left to chance, and that gap is exactly why Futures Financials exists.</p>
+        <p class="lede">Only <span class="em">30 of 50 states</span> guarantee a personal finance course before graduation. Everywhere else it is left to chance.</p>
         <div class="gap-actions">
           <a class="btn btn-primary" href="/impact">See How We're Closing the Gap</a>
           <a class="btn btn-outline" href="/about-us">What We Do</a>
@@ -215,32 +215,34 @@
         <span class="tag">Featured Media</span>
         <h2 class="section-title">In the News</h2>
       </div>
-      <div class="grid grid-3">
-        <article class="card">
-          <img class="card-media" src="images/news-teen-teach-in.jpg" alt="Futures Financials students leading a Teen Teach-In lesson on types of entrepreneurs" loading="lazy" />
-          <div class="card-meta"><span class="tag">Milestone</span><span>NGPF</span></div>
-          <h3>New Jersey's first-ever Teen Teach-In</h3>
-          <p>NGPF's recap of the first-ever Teen Teach-In event in New Jersey, hosted by Futures Financials with Jump$tart.</p>
-          <a class="arrow-link" href="https://www.ngpf.org/blog/advocacy/futures-financials-inc-teen-teach-in-recap/" target="_blank" rel="noopener">Read the recap <span class="arrow">→</span></a>
+      <div class="prog-rows">
+        <article class="prog-row reveal">
+          <figure class="prog-row__media"><img src="images/news-teen-teach-in.jpg" alt="Futures Financials students leading a Teen Teach-In lesson" loading="lazy" /></figure>
+          <div class="prog-row__text">
+            <div class="card-meta"><span class="tag">Milestone</span><span>NGPF</span></div>
+            <h3>New Jersey's <span class="hl">first-ever</span> Teen Teach-In</h3>
+            <a class="arrow-link" href="https://www.ngpf.org/blog/advocacy/futures-financials-inc-teen-teach-in-recap/" target="_blank" rel="noopener">Read the recap <span class="arrow">&rarr;</span></a>
+          </div>
         </article>
-        <article class="card">
-          <img class="card-media" src="images/news-award-story.jpg" alt="A student wearing an Empower Your Future New Jersey shirt at a Futures Financials event" loading="lazy" />
-          <div class="card-meta"><span class="tag">Award</span><span>NorthJersey.com</span></div>
-          <h3>Money awareness course for students wins award</h3>
-          <p>NorthJersey.com's feature on the North Jersey teens behind an award-winning money awareness course for students.</p>
-          <a class="arrow-link" href="https://www.northjersey.com/story/news/bergen/2025/06/06/north-jersey-teens-money-awareness-course-for-students-wins-award/83988107007/" target="_blank" rel="noopener">Read the story <span class="arrow">→</span></a>
+        <article class="prog-row prog-row--flip reveal">
+          <figure class="prog-row__media"><img src="images/press-tv-interview.jpg" alt="Futures Financials officers interviewed on New York television" loading="lazy" /></figure>
+          <div class="prog-row__text">
+            <div class="card-meta"><span class="tag">TV</span><span>FOX 5 New York</span></div>
+            <h3>Featured on <span class="hl">FOX 5 New York</span></h3>
+            <a class="arrow-link" href="https://www.fox5ny.com/video/1624692" target="_blank" rel="noopener">Watch the segment <span class="arrow">&rarr;</span></a>
+          </div>
         </article>
-        <article class="card">
-          <img class="card-media" src="images/news-fox5.jpg" alt="Two Futures Financials students being interviewed on a New York television segment" loading="lazy" />
-          <div class="card-meta"><span class="tag">TV</span><span>FOX 5 New York</span></div>
-          <h3>Featured on FOX 5 New York</h3>
-          <p>Television segments spotlighting Futures Financials on FOX 5 New York.</p>
-          <a class="arrow-link" href="https://www.fox5ny.com/video/1624692" target="_blank" rel="noopener">Watch segment 1 <span class="arrow">→</span></a><span class="link-note">Skip to 14:48</span>
-          <a class="arrow-link" style="margin-top: 0.6rem;" href="https://www.fox5ny.com/video/1552730" target="_blank" rel="noopener">Watch segment 2 <span class="arrow">→</span></a><span class="link-note">Skip to 7:30</span>
+        <article class="prog-row reveal">
+          <figure class="prog-row__media"><img src="images/shirt-empower.jpg" alt="A student wearing an Empower Your Future New Jersey shirt" loading="lazy" /></figure>
+          <div class="prog-row__text">
+            <div class="card-meta"><span class="tag">Award</span><span>NorthJersey.com</span></div>
+            <h3>An award-winning money awareness course</h3>
+            <a class="arrow-link" href="https://www.northjersey.com/story/news/bergen/2025/06/06/north-jersey-teens-money-awareness-course-for-students-wins-award/83988107007/" target="_blank" rel="noopener">Read the story <span class="arrow">&rarr;</span></a>
+          </div>
         </article>
       </div>
-      <div class="cta-actions" style="margin-top: 2.5rem;">
-        <a class="btn btn-outline" href="/media">See All Coverage</a>
+      <div class="cta-actions" style="margin-top: 2.6rem;">
+        <a class="btn btn-outline" href="/media">All coverage</a>
       </div>
     </div>
   </section>
@@ -292,7 +294,7 @@
       <div class="section-head center">
         <span class="tag">Programs</span>
         <h2 class="section-title">Real-world skills, taught by students who get it</h2>
-        <p class="lede">From budgeting basics to entrepreneurship, our three flagship programs meet students exactly where they are.</p>
+        <p class="lede">Budgeting basics through entrepreneurship, taught by students who sat in the same seats.</p>
       </div>
       <div class="prog-rows">
         <article class="prog-row">
@@ -367,35 +369,33 @@
     </div>
     <div class="marquee">
       <div class="marquee__track">
-        <img src="images/partners/ngpf.png" alt="Next Gen Personal Finance logo" loading="lazy" />
-        <img src="images/partners/junior-achievement.png" alt="Junior Achievement logo" loading="lazy" />
-        <img src="images/partners/jumpstart-coalition.png" alt="Jump$tart Coalition logo" loading="lazy" />
-        <img src="images/partners/finmango.png" alt="FinMango logo" loading="lazy" />
-        <img src="images/partners/google-health.png" alt="Google Health logo" loading="lazy" />
-        <img src="images/partners/princeton.png" alt="Princeton University logo" loading="lazy" />
-        <img src="images/partners/rutgers.png" alt="Rutgers University logo" loading="lazy" />
-        <img src="images/partners/bank-of-princeton.png" alt="The Bank of Princeton logo" loading="lazy" />
-        <img src="images/partners/young-investors-society.png" alt="Young Investors Society logo" loading="lazy" />
-      </div>
-      <div class="marquee__track" aria-hidden="true">
-        <img src="images/partners/ngpf.png" alt="" loading="lazy" />
-        <img src="images/partners/junior-achievement.png" alt="" loading="lazy" />
-        <img src="images/partners/jumpstart-coalition.png" alt="" loading="lazy" />
-        <img src="images/partners/finmango.png" alt="" loading="lazy" />
-        <img src="images/partners/google-health.png" alt="" loading="lazy" />
-        <img src="images/partners/princeton.png" alt="" loading="lazy" />
-        <img src="images/partners/rutgers.png" alt="" loading="lazy" />
-        <img src="images/partners/bank-of-princeton.png" alt="" loading="lazy" />
-        <img src="images/partners/young-investors-society.png" alt="" loading="lazy" />
+        <img src="images/partners/ngpf.png" alt="Next Gen Personal Finance logo" width="121" height="46" />
+        <img src="images/partners/junior-achievement.png" alt="Junior Achievement logo" width="139" height="46" />
+        <img src="images/partners/jumpstart-coalition.png" alt="Jump$tart Coalition logo" width="77" height="46" />
+        <img src="images/partners/finmango.png" alt="FinMango logo" width="117" height="46" />
+        <img src="images/partners/google-health.png" alt="Google Health logo" width="253" height="46" />
+        <img src="images/partners/princeton.png" alt="Princeton University logo" width="144" height="46" />
+        <img src="images/partners/rutgers.png" alt="Rutgers University logo" width="131" height="46" />
+        <img src="images/partners/bank-of-princeton.png" alt="The Bank of Princeton logo" width="116" height="46" />
+        <img src="images/partners/young-investors-society.png" alt="Young Investors Society logo" width="98" height="46" />
+        <img class="marquee__dup" src="images/partners/ngpf.png" alt="" aria-hidden="true" width="121" height="46" />
+        <img class="marquee__dup" src="images/partners/junior-achievement.png" alt="" aria-hidden="true" width="139" height="46" />
+        <img class="marquee__dup" src="images/partners/jumpstart-coalition.png" alt="" aria-hidden="true" width="77" height="46" />
+        <img class="marquee__dup" src="images/partners/finmango.png" alt="" aria-hidden="true" width="117" height="46" />
+        <img class="marquee__dup" src="images/partners/google-health.png" alt="" aria-hidden="true" width="253" height="46" />
+        <img class="marquee__dup" src="images/partners/princeton.png" alt="" aria-hidden="true" width="144" height="46" />
+        <img class="marquee__dup" src="images/partners/rutgers.png" alt="" aria-hidden="true" width="131" height="46" />
+        <img class="marquee__dup" src="images/partners/bank-of-princeton.png" alt="" aria-hidden="true" width="116" height="46" />
+        <img class="marquee__dup" src="images/partners/young-investors-society.png" alt="" aria-hidden="true" width="98" height="46" />
       </div>
     </div>
-  </section>
+    </section>
 
   <!-- CLOSING CTA -->
   <section class="section section--dark on-dark cta-band">
     <div class="container">
       <h2>Join a global movement of student-led financial education.</h2>
-      <p>Whether you volunteer or start a chapter, you're helping students build a smarter financial future.</p>
+      <p>Volunteer or start a chapter.</p>
       <div class="cta-actions">
         <a class="btn btn-gold" href="/volunteer">Volunteer</a>
         <a class="btn btn-outline-light" href="/start-a-chapter">Start a Chapter</a>

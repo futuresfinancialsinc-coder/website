@@ -12,47 +12,74 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Dropdowns. Hover opens them on pointer devices (CSS), click/tap opens
-  // them everywhere else. Only one is ever open, so panels cannot overlap.
-  const dropItems = document.querySelectorAll(".has-dropdown");
-  const closeAllDropdowns = () => {
-    dropItems.forEach((el) => {
-      el.classList.remove("open");
-      const b = el.querySelector(".drop-btn");
-      if (b) b.setAttribute("aria-expanded", "false");
-    });
+  // Dropdowns. One helper opens a panel and closes every other one, so two can
+  // never be on screen together whether the menu was reached by pointer,
+  // click/tap or keyboard. CSS shows a panel only while it carries .open.
+  const dropItems = [...document.querySelectorAll(".has-dropdown")];
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  // Clicking a button focuses it, and that focus must not also drive the menu:
+  // when it did, a clicked panel stayed open under the next hovered one.
+  let viaKeyboard = false;
+  // Escape puts focus back on the button; that focus must not reopen the menu.
+  let suppressFocusOpen = false;
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") viaKeyboard = true;
+  }, true);
+  document.addEventListener("mousedown", () => { viaKeyboard = false; }, true);
+  document.addEventListener("touchstart", () => { viaKeyboard = false; }, { capture: true, passive: true });
+
+  const setOpen = (item, open) => {
+    item.classList.toggle("open", open);
+    const btn = item.querySelector(".drop-btn");
+    if (btn) btn.setAttribute("aria-expanded", String(open));
   };
+  const closeAllDropdowns = () => dropItems.forEach((el) => setOpen(el, false));
+  const openOnly = (item) => dropItems.forEach((el) => setOpen(el, el === item));
 
-  document.querySelectorAll(".has-dropdown > .drop-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const item = btn.parentElement;
-      const wasOpen = item.classList.contains("open");
-      closeAllDropdowns();
-      if (!wasOpen) {
-        item.classList.add("open");
-        btn.setAttribute("aria-expanded", "true");
-      }
-    });
-  });
-
-  // Hovering one menu clears any menu left open by an earlier click, so a
-  // hovered panel and a clicked panel can never be shown at the same time.
   dropItems.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      dropItems.forEach((other) => {
-        if (other !== item) {
-          other.classList.remove("open");
-          const b = other.querySelector(".drop-btn");
-          if (b) b.setAttribute("aria-expanded", "false");
-        }
+    const btn = item.querySelector(".drop-btn");
+
+    if (btn) {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        // Where there is no hover, the button is the only way in, so it toggles.
+        // Where hover already opens the panel, the button only ever opens it;
+        // closing is moving the pointer away, Escape, or a click outside.
+        if (!canHover && item.classList.contains("open")) closeAllDropdowns();
+        else openOnly(item);
       });
+    }
+
+    if (canHover) {
+      // The panel sits below an 8px gap, bridged by .dropdown::before. Both are
+      // descendants of the item, so moving onto them never fires mouseleave.
+      item.addEventListener("mouseenter", () => openOnly(item));
+      item.addEventListener("mouseleave", () => setOpen(item, false));
+    }
+
+    // Keyboard only: tabbing into the item opens it, tabbing out closes it.
+    item.addEventListener("focusin", () => {
+      if (viaKeyboard && !suppressFocusOpen) openOnly(item);
+    });
+    item.addEventListener("focusout", (e) => {
+      if (viaKeyboard && !item.contains(e.relatedTarget)) setOpen(item, false);
     });
   });
 
   document.addEventListener("click", closeAllDropdowns);
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAllDropdowns();
+    if (e.key !== "Escape") return;
+    const open = dropItems.find((el) => el.classList.contains("open"));
+    closeAllDropdowns();
+    if (open) {
+      const btn = open.querySelector(".drop-btn");
+      if (btn) {
+        suppressFocusOpen = true;   // focus() fires focusin synchronously
+        btn.focus();
+        suppressFocusOpen = false;
+      }
+    }
   });
 
   // Footer year
@@ -195,6 +222,28 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, { threshold: 0.3 });
     gapIO.observe(gapGrid);
+  }
+
+  // Header: clear over the page opening, solid once it has scrolled past.
+  const hdr = document.querySelector(".site-header");
+  const opening = document.querySelector("[data-hero]");
+  if (hdr) {
+    if (opening) {
+      const syncSolid = () =>
+        hdr.classList.toggle("is-solid", opening.getBoundingClientRect().bottom <= 80);
+      syncSolid();
+      window.addEventListener("scroll", syncSolid, { passive: true });
+      window.addEventListener("resize", syncSolid);
+      window.addEventListener("load", syncSolid);
+    } else {
+      // No branded opening on this page, so the bar is solid from the start.
+      hdr.classList.add("is-solid");
+    }
+    // The mobile menu needs a readable backing whatever the scroll position.
+    const syncNavOpen = () =>
+      hdr.classList.toggle("nav-open", !!document.querySelector(".site-nav.open, .has-dropdown.open"));
+    hdr.addEventListener("click", () => requestAnimationFrame(syncNavOpen));
+    document.addEventListener("keyup", syncNavOpen);
   }
 
   // Header auto-hide: slide away while scrolling down, return on scroll up.
