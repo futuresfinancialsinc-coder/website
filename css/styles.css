@@ -2250,8 +2250,11 @@ body { overflow-x: clip; }
   .cluster .c3 { grid-column: span 2; aspect-ratio: 4 / 3; }
   .cluster .c4 { grid-column: span 2; aspect-ratio: 4 / 3; }
   .cluster .c5 { grid-column: span 2; aspect-ratio: 4 / 3; }
+  .cluster .c6 { grid-column: span 2; aspect-ratio: 4 / 3; }
   /* one genuinely portrait photograph gets a portrait cell */
   .cluster .is-portrait { aspect-ratio: 3 / 4; }
+  /* broadcast stills are wider than a session photograph */
+  .cluster .is-wide { aspect-ratio: 16 / 9; }
 }
 
 /* ---- Text beside a column of photos that scrolls past it ---- */
