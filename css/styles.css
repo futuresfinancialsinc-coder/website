@@ -2477,3 +2477,79 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
 .paper-status b { font-weight: 700; }
 .status--live   { color: var(--green-700); }
 .status--failed { color: #9a3412; }
+
+/* ------------------------------------------------------------
+   Research timeline. A sticky marker in the left gutter names the
+   period you are reading, and the rule running down the page ties
+   the entries to it.
+
+   Named rtimeline, not timeline: an older unused .timeline block
+   further up this file styles its own rule and dots with no media
+   query, and it was silently overriding this layout.
+   ------------------------------------------------------------ */
+.rtimeline { display: grid; gap: 0; }
+@media (min-width: 980px) {
+  .rtimeline { grid-template-columns: 11rem minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 2.6rem); }
+}
+.rtimeline__rail { display: none; }
+@media (min-width: 980px) {
+  .rtimeline__rail { display: block; position: relative; }
+  .rtimeline__now {
+    position: sticky; top: calc(var(--header-h) + 3.5rem);
+    padding-right: 1.4rem; text-align: right;
+  }
+}
+.tl-year {
+  display: block; font-size: clamp(2.2rem, 3.4vw, 3rem); line-height: 1;
+  font-weight: 800; color: var(--green-800);
+}
+.tl-month {
+  display: block; margin-top: 0.35rem;
+  font-size: 0.78rem; letter-spacing: 0.17em; text-transform: uppercase;
+  color: var(--gold-dark);
+}
+/* The text is already correct when this runs; the fade is decoration only. */
+.rtimeline__now.is-swapping .tl-year,
+.rtimeline__now.is-swapping .tl-month { animation: tl-fade 0.3s ease; }
+@keyframes tl-fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .rtimeline__now.is-swapping .tl-year,
+  .rtimeline__now.is-swapping .tl-month { animation: none; }
+}
+
+/* The rule and its markers read as a timeline at every width. */
+.rtimeline__list { position: relative; padding-left: 2.2rem; }
+.rtimeline__list::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px; background: var(--line);
+}
+.rtimeline__list > li { position: relative; }
+.rtimeline__list > li::before {
+  content: ""; position: absolute; left: -2.2rem; top: 1.9rem;
+  width: 11px; height: 11px; margin-left: -4.5px;
+  border-radius: 50%; background: var(--white);
+  border: 2px solid var(--green-600);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.rtimeline__list > li.is-current::before {
+  background: var(--gold); border-color: var(--gold-dark); transform: scale(1.25);
+}
+@media (min-width: 980px) {
+  .rtimeline__list > li::before { top: 50%; margin-top: -5px; }
+}
+
+/* On narrow screens each entry states its own date, since the rail is hidden. */
+.tl-stamp {
+  display: block; margin-bottom: 0.45rem;
+  font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold-dark);
+}
+@media (min-width: 980px) { .tl-stamp { display: none; } }
+.tl-divider {
+  border: 0; border-top: 1px solid var(--line); margin: 0;
+  padding-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+.tl-undated {
+  font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft); margin: 0 0 0.4rem;
+}
