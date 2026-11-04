@@ -2572,3 +2572,52 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
 .story-card .story-img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 /* 16/10 cropped the squarer photographs; 4/3 sits nearer the whole set. */
 .prog-row__media img { aspect-ratio: 4 / 3; }
+
+/* ------------------------------------------------------------
+   Partner wall. Each partner gets a generous panel, its name
+   under the mark and a rule beneath, and the whole cell links out.
+   Logos vary from 1:1 to 5.5:1, so the panel is a fixed height and
+   the mark is contained inside it rather than cropped.
+   ------------------------------------------------------------ */
+.partner-wall {
+  list-style: none; margin: 2.5rem 0 0; padding: 0;
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3.2rem) clamp(1.6rem, 4vw, 3.5rem);
+}
+@media (min-width: 620px)  { .partner-wall { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .partner-wall { grid-template-columns: repeat(3, 1fr); } }
+
+.partner-cell {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  text-decoration: none; color: inherit;
+  padding-bottom: clamp(1rem, 2.2vw, 1.5rem);
+  border-bottom: 1px solid var(--ink);
+}
+.partner-cell__art {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: clamp(130px, 17vw, 190px);
+  margin-bottom: clamp(1rem, 2.2vw, 1.5rem);
+}
+.partner-cell__art img {
+  max-width: 88%; max-height: 100%; width: auto; height: auto;
+  object-fit: contain;                    /* never crop a wordmark */
+  transition: transform 0.25s ease;
+}
+.partner-cell:hover .partner-cell__art img,
+.partner-cell:focus-visible .partner-cell__art img { transform: scale(1.05); }
+.partner-cell__name {
+  font-size: clamp(1rem, 1.5vw, 1.12rem); line-height: 1.3;
+  color: var(--green-900);
+}
+.partner-cell__go {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-top: 0.7rem;
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; color: var(--gold-dark);
+}
+.partner-cell:hover .partner-cell__go,
+.partner-cell:focus-visible .partner-cell__go { color: var(--green-700); }
+.partner-cell:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; border-radius: 10px; }
+
+/* The impact page shows a short selection of the same wall. */
+.partner-wall--compact .partner-cell__art { height: clamp(96px, 12vw, 130px); }
