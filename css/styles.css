@@ -2240,22 +2240,18 @@ body { overflow-x: clip; }
 .photo-band p { color: rgba(255, 255, 255, 0.94); margin-bottom: 0; }
 
 /* ---- Offset photo cluster: deliberately uneven, never a card row ---- */
-.cluster { position: relative; display: grid; gap: 1rem; margin-top: 2.2rem; }
-.cluster figure { margin: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); }
-.cluster img { width: 100%; height: 100%; object-fit: cover; display: block; }
-@media (min-width: 820px) {
-  .cluster { grid-template-columns: repeat(6, 1fr); grid-auto-rows: auto; gap: 1.2rem; align-items: start; }
-  .cluster .c1 { grid-column: span 3; aspect-ratio: 3 / 2; }
-  .cluster .c2 { grid-column: span 3; aspect-ratio: 3 / 2; }
-  .cluster .c3 { grid-column: span 2; aspect-ratio: 4 / 3; }
-  .cluster .c4 { grid-column: span 2; aspect-ratio: 4 / 3; }
-  .cluster .c5 { grid-column: span 2; aspect-ratio: 4 / 3; }
-  .cluster .c6 { grid-column: span 2; aspect-ratio: 4 / 3; }
-  /* one genuinely portrait photograph gets a portrait cell */
-  .cluster .is-portrait { aspect-ratio: 3 / 4; }
-  /* broadcast stills are wider than a session photograph */
-  .cluster .is-wide { aspect-ratio: 16 / 9; }
+.cluster {
+  margin-top: 2.2rem;
+  columns: 1; column-gap: clamp(1rem, 2.2vw, 1.4rem);
 }
+@media (min-width: 620px)  { .cluster { columns: 2; } }
+@media (min-width: 1000px) { .cluster { columns: 3; } }
+.cluster figure {
+  break-inside: avoid; margin: 0 0 clamp(1rem, 2.2vw, 1.4rem);
+  border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md);
+}
+/* No object-fit here: each photograph is shown whole at its own ratio. */
+.cluster img { width: 100%; height: auto; display: block; }
 
 /* ---- Text beside a column of photos that scrolls past it ---- */
 .sticky-split { display: grid; gap: 2rem; align-items: start; }
@@ -2526,7 +2522,12 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
 }
 
 /* ---- One photograph placed in the body, not the opening ---- */
-.page-photo { margin: 0; position: relative; overflow: hidden; }
+.page-photo {
+  position: relative; overflow: hidden;
+  width: min(1120px, 100% - 3rem);
+  margin: clamp(2.5rem, 6vw, 4.5rem) auto;
+  border-radius: 22px; box-shadow: var(--shadow-md);
+}
 .page-photo img {
   display: block; width: 100%; height: auto;
   aspect-ratio: 4 / 3;            /* close to what the photographs actually are */
@@ -2605,14 +2606,9 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
 }
 .partner-cell:hover .partner-cell__art img,
 .partner-cell:focus-visible .partner-cell__art img { transform: scale(1.05); }
-.partner-cell__name {
-  font-size: clamp(1rem, 1.5vw, 1.12rem); line-height: 1.3;
-  color: var(--green-900);
-}
 .partner-cell__go {
   display: inline-flex; align-items: center; gap: 0.4rem;
-  margin-top: 0.7rem;
-  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
   font-weight: 700; color: var(--gold-dark);
 }
 .partner-cell:hover .partner-cell__go,
