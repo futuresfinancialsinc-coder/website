@@ -2103,7 +2103,9 @@ img, svg, video, iframe { max-width: 100%; }
    (6px at 1280px). Anchor the last one to its right edge instead. */
 @media (min-width: 981px) {
   .site-nav > ul > li.has-dropdown:last-child .dropdown { left: auto; right: 0; }
-  .site-nav > ul > li.has-dropdown:last-child .dropdown::before { left: auto; right: 1.2rem; }
+  /* The panel is right-anchored here, but its ::before is the hover bridge over
+     the gap below the button, not a pointer. Re-anchoring it collapsed it to
+     zero width, so the last menu closed as soon as you reached for a link. */
 }
 
 /* The reveal animation's 34px horizontal slide still pushes past the gutter at
