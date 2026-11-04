@@ -2149,7 +2149,10 @@ body { overflow-x: clip; }
 .site-header.nav-open .brand-name,
 .site-header.nav-open .nav-link { text-shadow: none; }
 
-/* ---- Branded page opening ---- */
+/* ---- Branded page opening ----
+   The name of the organisation, then the name of the page. No logo, no
+   photography, no standfirst: the opening states where you are and the page
+   itself does the rest. ------------------------------------------------ */
 .brand-hero {
   position: relative;
   min-height: 100vh;
@@ -2169,63 +2172,18 @@ body { overflow-x: clip; }
   pointer-events: none;
 }
 .brand-hero__inner { position: relative; z-index: 3; }
-.brand-hero__logo {
-  width: clamp(62px, 9vw, 104px); height: auto;
-  margin: 0 auto 1.4rem; display: block;
-  filter: drop-shadow(0 10px 26px rgba(18, 45, 25, 0.3));
-}
 .brand-hero__wordmark {
-  font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.2em; text-indent: 0.2em;
-  font-size: clamp(0.84rem, 1.7vw, 1.08rem);
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0 0 clamp(0.9rem, 2.2vw, 1.5rem);
+  margin: 0;
+  color: #fff; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; text-indent: 0.1em;
+  font-size: clamp(2rem, 7vw, 5rem);
+  line-height: 1.05;
 }
 .brand-hero__title {
-  font-size: clamp(2.5rem, 7.4vw, 5.4rem);
-  line-height: 1.02; letter-spacing: -0.015em;
-  margin: 0 auto; max-width: 16ch; color: #fff;
-}
-.brand-hero__title .hl { color: var(--gold-light); font-style: italic; }
-.brand-hero__sub {
-  margin: clamp(1.2rem, 3vw, 1.8rem) auto 0;
-  max-width: 44ch;
-  font-size: clamp(1.02rem, 1.7vw, 1.22rem);
-  color: rgba(255, 255, 255, 0.94);
-}
-.brand-hero__cta {
-  display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center;
-  margin-top: clamp(1.6rem, 3.5vw, 2.4rem);
-}
-
-/* Photo variant: the subject carries the screen, the wash keeps type legible */
-.brand-hero--photo { background: var(--green-900); }
-.brand-hero__photo {
-  position: absolute; inset: 0; z-index: 0;
-  width: 100%; height: 100%; object-fit: cover;
-}
-.brand-hero__wash {
-  position: absolute; inset: 0; z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(18, 45, 25, 0.72) 0%, rgba(18, 45, 25, 0.42) 42%, rgba(18, 45, 25, 0.82) 100%),
-    linear-gradient(104deg, rgba(30, 123, 66, 0.52), rgba(18, 45, 25, 0.28));
-}
-
-/* Tile variant: photos float in the corners, clear of the type corridor */
-.bh-tile {
-  position: absolute; z-index: 2; display: none;
-  border-radius: 18px; overflow: hidden;
-  box-shadow: 0 18px 44px rgba(18, 45, 25, 0.3);
-  border: 4px solid rgba(255, 255, 255, 0.9);
-}
-.bh-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-@media (min-width: 1000px) {
-  .bh-tile { display: block; }
-  /* Clear of the bar so a tile never sits under the nav. */
-  .bh-tile--a { top: calc(var(--header-h) + 1.4rem); left: 3%;  width: 15%; aspect-ratio: 4/3; }
-  .bh-tile--b { top: calc(var(--header-h) + 1.4rem); right: 4%; width: 14%; aspect-ratio: 3/2; }
-  .bh-tile--c { bottom: 8%; left: 7%;   width: 13%; aspect-ratio: 3/2; }
-  .bh-tile--d { bottom: 6%; right: 6%;  width: 15%; aspect-ratio: 4/3; }
+  margin: clamp(1rem, 2.6vw, 1.8rem) auto 0;
+  font-size: clamp(1.35rem, 3vw, 2.3rem);
+  font-weight: 400; line-height: 1.2;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* ---- Scroll cue ---- */
@@ -2561,3 +2519,34 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
   font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--ink-soft); margin: 0 0 0.4rem;
 }
+
+/* ---- One photograph placed in the body, not the opening ---- */
+.page-photo { margin: 0; position: relative; overflow: hidden; }
+.page-photo img {
+  display: block; width: 100%;
+  height: clamp(260px, 34vw, 440px); object-fit: cover;
+}
+.page-photo figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: clamp(1rem, 2.4vw, 1.6rem) clamp(1.2rem, 4vw, 3rem);
+  background: linear-gradient(0deg, rgba(18, 45, 25, 0.8), rgba(18, 45, 25, 0));
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------
+   Officer bios now sit in the body on a light ground, because the
+   page opens on the brand hero like every other page. The bio
+   components were written for a dark panel, so recolour them.
+   ------------------------------------------------------------ */
+.bio-section .bio-back { color: var(--green-700); }
+.bio-section .bio-back:hover { color: var(--green-900); }
+.bio-section .bio-body p { color: var(--ink); }
+.bio-section .bio-linkedin {
+  border-color: var(--green-700); color: var(--green-800);
+}
+.bio-section .bio-linkedin:hover,
+.bio-section .bio-linkedin:focus-visible {
+  background: var(--green-700); border-color: var(--green-700); color: #fff;
+}
+@media (min-width: 981px) { .bio-section .bio-media { position: sticky; top: calc(var(--header-h) + 2rem); } }

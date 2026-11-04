@@ -122,14 +122,20 @@
 
 <main id="main">
 
-  <section class="bio-hero on-dark">
-    <div class="bio-hero__pattern" role="presentation"></div>
+    <section class="brand-hero" data-hero>
+    <div class="brand-hero__pattern" role="presentation"></div>
+    <div class="container brand-hero__inner">
+      <p class="brand-hero__wordmark">Futures Financials</p>
+      <h1 class="brand-hero__title">Justin Pua</h1>
+    </div>
+    <a class="scroll-cue" href="#start" aria-label="Scroll to content"><span></span>Scroll</a>
+  </section>
+
+  <section id="start" class="section bio-section">
     <div class="container bio-grid">
       <div class="bio-text">
         <a class="bio-back" href="/meet-the-team">← Meet the Executive Team</a>
-        <p class="bio-wordmark">Futures Financials</p>
         <div><span class="tag">Co-Chief Executive Officer</span></div>
-        <h1 class="bio-name">Justin Pua</h1>
         <div class="bio-body">
           <p>Justin Pua is a senior at Bergen County Technical High School in Teterboro, where he is enrolled in the FinTech program. Justin serves as Co-Chief Executive Officer of Futures Financials, having been a member since his freshman year of high school. The organization now reaches more than 50 schools and libraries across Bergen County. He rewrote its curriculum in Spanish, built its website, and helps lead its education and outreach.</p>
           <p>Justin is a first-generation college student who grew up watching his parents deal with a language barrier when managing money. He rewrote the curriculum in Spanish using Latino pop culture and adapted it for ESL learners because he believes a language barrier shouldn't decide who learns how money works.</p>
@@ -153,13 +159,9 @@
     </div>
   </section>
 
-  <section class="photo-band">
-    <img class="photo-band__img" src="images/session-library-present.jpg" alt="A volunteer presenting to a class in a school library" />
-    <div class="photo-band__wash" role="presentation"></div>
-    <div class="container photo-band__text">
-      <h2>The work, <span class="hl">in the room</span>.</h2>
-    </div>
-  </section>
+  <figure class="page-photo">
+    <img src="images/session-library-present.jpg" alt="A volunteer presenting to a class in a school library" loading="lazy" />
+  </figure>
 
   <section class="section section--dark on-dark cta-band">
     <div class="container">
