@@ -2366,7 +2366,7 @@ body { overflow-x: clip; }
 .team-wall .team-photo-link:hover .team-photo { transform: scale(1.04); }
 .team-wall .t-name { margin-top: 1rem; font-size: 1.25rem; font-weight: 700; color: var(--green-900); }
 .team-wall .t-cofounder { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark); margin-top: 0.3rem; }
-.team-wall .t-role { color: var(--ink-soft); margin-top: 0.2rem; }
+.team-wall .t-role { color: var(--green-700); font-weight: 600; margin-top: 0.2rem; }
 .team-wall .arrow-link { margin-top: 0.7rem; }
 
 /* ---- Bio pages open on the brand background too ---- */
