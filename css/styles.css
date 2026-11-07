@@ -1927,19 +1927,13 @@ h1 .hl,
   .hm-tile--a { top: calc(var(--header-h) + 1.2rem); left: 19%;  width: 14%; aspect-ratio: 4/3; }
   .hm-tile--f { top: calc(var(--header-h) + 0.8rem); right: 23%; width: 13%; aspect-ratio: 16/10; }
   .hm-tile--c { top: calc(var(--header-h) + 2rem);   right: -3%; width: 16%; aspect-ratio: 4/3; }
-  /* Sits on the left edge at mid height, where the top-left corner was
-     already carrying two tiles. Bled well off the edge: the wordmark is
-     widest at exactly this height, so only a sliver belongs on screen. */
-  .hm-tile--g { top: 50%; transform: translateY(-50%);
-                left: -7%; width: 15%; aspect-ratio: 16/9; }
-  .hm-tile--b { bottom: 4%; left: -4%;  width: 17%; aspect-ratio: 4/3; }
+  /* Top-left, mirroring the tile in the opposite corner. */
+  .hm-tile--g { top: calc(var(--header-h) + 2rem);   left: -3%;  width: 16%; aspect-ratio: 16/9; }
+  /* Lifted off the bottom edge so the left side reads as spread out rather
+     than stacked in the corner. */
+  .hm-tile--b { bottom: 13%; left: -4%;  width: 17%; aspect-ratio: 4/3; }
   .hm-tile--d { bottom: 6%; left: 21%;  width: 14%; aspect-ratio: 3/2; }
   .hm-tile--e { bottom: 5%; right: 4%;  width: 14%; aspect-ratio: 3/2; }
-}
-/* Under ~1280 the wordmark runs almost to the edge (69px in at 1000px wide),
-   so the mid-height tile has to bleed further out to stay clear of it. */
-@media (min-width: 1000px) and (max-width: 1279px) {
-  .hm-tile--g { left: -11%; width: 16%; }
 }
 @media (min-width: 1500px) {
   .hm-tile--a { left: 21%; width: 12%; }
