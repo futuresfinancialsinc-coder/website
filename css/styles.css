@@ -1945,7 +1945,8 @@ h1 .hl,
   .hm-tile--a { left: 21%; width: 12%; }
   .hm-tile--b { left: 1%;  width: 15%; }
   .hm-tile--c { right: 2%; width: 14%; }
-  .hm-tile--g { left: -3%; width: 14%; }
+  /* Wide enough to sit fully on screen rather than bleeding off the edge. */
+  .hm-tile--g { left: 2%; width: 14%; }
   .hm-tile--f { right: 25%; width: 12%; }
 }
 
