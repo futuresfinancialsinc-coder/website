@@ -1920,22 +1920,48 @@ h1 .hl,
 /* Tiles are hidden by default and only placed once there is room for them,
    so a phone gets a clean gradient instead of six cropped slivers. */
 .hm-tile { display: none; }
+
+/* Tablet: a phone still gets a clean gradient, but an iPad has room for the
+   four corner tiles. They bleed further off the edge than on desktop so they
+   read as a frame around the wordmark rather than clutter beside it. */
+@media (min-width: 700px) {
+  .hm-tile--g, .hm-tile--c, .hm-tile--b, .hm-tile--e { display: block; }
+  .hm-tile--g { top: calc(var(--header-h) + 0.6rem); left: -8%;  width: 23%; aspect-ratio: 16/9; }
+  .hm-tile--c { top: calc(var(--header-h) + 0.6rem); right: -8%; width: 23%; aspect-ratio: 4/3; }
+  .hm-tile--b { bottom: 3%; left: -8%;  width: 25%; aspect-ratio: 4/3; }
+  .hm-tile--e { bottom: 3%; right: -8%; width: 25%; aspect-ratio: 3/2; }
+}
+
 @media (min-width: 1000px) {
   .hm-tile { display: block; }
   /* Tiles bleed off the left and right edges, which reads as deliberate.
      Nothing is sliced through the middle of the composition. */
-  .hm-tile--a { top: calc(var(--header-h) + 1.2rem); left: 19%;  width: 14%; aspect-ratio: 4/3; }
-  .hm-tile--f { top: calc(var(--header-h) + 0.8rem); right: 23%; width: 13%; aspect-ratio: 16/10; }
-  .hm-tile--c { top: calc(var(--header-h) + 2rem);   right: -3%; width: 16%; aspect-ratio: 4/3; }
-  .hm-tile--b { bottom: 4%; left: -4%;  width: 17%; aspect-ratio: 4/3; }
-  .hm-tile--d { bottom: 6%; left: 21%;  width: 14%; aspect-ratio: 3/2; }
-  .hm-tile--e { bottom: 5%; right: 4%;  width: 14%; aspect-ratio: 3/2; }
+  .hm-tile--a { top: calc(var(--header-h) + 1.2rem); left: 19%;  width: 16%; aspect-ratio: 4/3; }
+  .hm-tile--f { top: calc(var(--header-h) + 0.8rem); right: 23%; width: 15%; aspect-ratio: 16/10; }
+  .hm-tile--c { top: calc(var(--header-h) + 2rem);   right: -3%; width: 18%; aspect-ratio: 4/3; }
+  .hm-tile--g { top: calc(var(--header-h) + 1.4rem); left: -3%;  width: 17%; aspect-ratio: 16/9; }
+  .hm-tile--b { bottom: 4%; left: -4%;  width: 19%; aspect-ratio: 4/3; }
+  .hm-tile--d { bottom: 6%; left: 21%;  width: 16%; aspect-ratio: 3/2; }
+  .hm-tile--e { bottom: 5%; right: 4%;  width: 16%; aspect-ratio: 3/2; }
 }
 @media (min-width: 1500px) {
-  .hm-tile--a { left: 21%; width: 12%; }
-  .hm-tile--b { left: 1%;  width: 15%; }
-  .hm-tile--c { right: 2%; width: 14%; }
-  .hm-tile--f { right: 25%; width: 12%; }
+  .hm-tile--a { left: 21%; width: 14%; }
+  .hm-tile--b { left: 1%;  width: 17%; }
+  .hm-tile--c { right: 2%; width: 16%; }
+  .hm-tile--f { right: 25%; width: 14%; }
+  .hm-tile--g { left: 1%;  width: 16%; }
+}
+
+/* Short laptop viewports: the hero is 100svh, so when the window is wide but
+   not tall the centred wordmark and mission grow into the tiles. Drop the
+   three tiles that sit nearest the middle and tuck the rest into the corners,
+   where centred text cannot reach them. Height, not width, is the constraint. */
+@media (min-width: 1000px) and (max-height: 780px) {
+  .hm-tile--a, .hm-tile--d, .hm-tile--f { display: none; }
+  .hm-tile--g { top: calc(var(--header-h) + 0.4rem); left: -6%;  width: 15%; }
+  .hm-tile--c { top: calc(var(--header-h) + 0.4rem); right: -6%; width: 15%; }
+  .hm-tile--b { bottom: 2%; left: -6%;  width: 16%; }
+  .hm-tile--e { bottom: 2%; right: -6%; width: 16%; }
 }
 
 /* ============================================================
