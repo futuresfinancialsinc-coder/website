@@ -2470,17 +2470,20 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
    thing naming the period and shows at every width.
    ------------------------------------------------------------ */
 .paper-group {
-  margin: clamp(2.6rem, 5vw, 3.8rem) 0 0;
+  margin: clamp(3rem, 6vw, 4.6rem) 0 0;
   font-size: clamp(1.6rem, 3vw, 2.3rem);
   line-height: 1.15;
   letter-spacing: -0.01em;
   font-weight: 700;
-  color: var(--green-700);
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--line);
+  /* green-900 reads 11.13:1 on the --green-50 tint behind this section;
+     the green-700 it replaces was 4.91:1 and sank into the background. */
+  color: var(--green-900);
 }
-.paper-group:first-of-type { margin-top: clamp(1.2rem, 2.5vw, 1.8rem); }
-.paper-group + .paper-list { margin-top: 0.4rem; }
+.paper-group:first-of-type { margin-top: clamp(1.4rem, 3vw, 2.2rem); }
+/* No rule under the heading: the first row's own top border already draws
+   one, and two lines a gap apart looked like a mistake. The space does the
+   separating instead. */
+.paper-group + .paper-list { margin-top: clamp(1.5rem, 3vw, 2.2rem); }
 
 .tl-stamp {
   display: block; margin-bottom: 0.45rem;
