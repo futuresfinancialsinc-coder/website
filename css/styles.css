@@ -2403,7 +2403,7 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
    ------------------------------------------------------------ */
 .paper-list { list-style: none; margin: 2rem 0 0; padding: 0; }
 .paper-list > li {
-  display: grid; gap: 0.6rem;
+  display: grid; gap: 0.95rem;
   padding: clamp(1.4rem, 3vw, 2.1rem) 0;
   border-top: 1px solid var(--line);
   align-items: start;
@@ -2413,7 +2413,7 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
   .paper-list > li {
     grid-template-columns: minmax(0, 1fr) auto;
     column-gap: clamp(1.5rem, 3vw, 2.8rem);
-    row-gap: 0.55rem;
+    row-gap: 0.95rem;
     align-items: start;
   }
   .paper-list > li > .paper-title { grid-column: 1; grid-row: 1; }
@@ -2423,11 +2423,11 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
     align-self: center; justify-self: end;
   }
 }
-.paper-title { margin: 0; font-size: clamp(1.08rem, 1.7vw, 1.3rem); line-height: 1.3; color: var(--green-900); }
+.paper-title { margin: 0; font-size: clamp(1.08rem, 1.7vw, 1.3rem); line-height: 1.3; color: var(--green-700); }
 .paper-title a { color: inherit; text-decoration: none;
                  border-bottom: 1px solid rgba(30, 123, 66, 0.3); }
 .paper-title a:hover, .paper-title a:focus-visible {
-  color: var(--green-700); border-bottom-color: var(--green-700);
+  color: var(--green-900); border-bottom-color: var(--green-700);
 }
 /* Byline runs in two tiers: where it was published, then who wrote it and
    when, so the eye picks up the venue and the author separately. */
