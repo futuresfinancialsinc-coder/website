@@ -82,58 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Research timeline: the sticky marker names whichever entry you are reading.
-  // Driven off scroll position rather than an IntersectionObserver so the
-  // reading is the same on load, on resize and mid-scroll.
-  const timeline = document.querySelector("[data-timeline]");
-  if (timeline) {
-    const entries = [...timeline.querySelectorAll("li[data-year]")];
-    const yearEl = timeline.querySelector(".tl-year");
-    const monthEl = timeline.querySelector(".tl-month");
-    const marker = timeline.querySelector(".rtimeline__now");
-
-    if (entries.length && yearEl && monthEl) {
-      let shown = null;
-      const syncTimeline = () => {
-        // The entry whose top has most recently passed the reading line, so
-        // the marker changes as that entry reaches it rather than after it.
-        const line = window.innerHeight * 0.42;
-        let current = entries[0];
-        for (const el of entries) {
-          if (el.getBoundingClientRect().top <= line) current = el;
-        }
-        entries.forEach((el) => el.classList.toggle("is-current", el === current));
-
-        const key = current.dataset.year + current.dataset.month;
-        if (key === shown) return;
-        shown = key;
-        // Write synchronously. Deferring the write behind the fade let a fast
-        // scroll land two changes inside one timeout and leave stale text.
-        yearEl.textContent = current.dataset.year;
-        monthEl.textContent = current.dataset.month;
-        if (marker) {
-          marker.classList.remove("is-swapping");
-          void marker.offsetWidth;            // restart the fade
-          marker.classList.add("is-swapping");
-        }
-      };
-
-      // First paint should match the top entry without the fade.
-      yearEl.textContent = entries[0].dataset.year;
-      monthEl.textContent = entries[0].dataset.month;
-      shown = entries[0].dataset.year + entries[0].dataset.month;
-      entries[0].classList.add("is-current");
-
-      // Five getBoundingClientRect reads per scroll event is cheap enough to run
-      // straight off the event. A requestAnimationFrame throttle is starved in a
-      // background tab, which left the marker showing a stale period.
-      window.addEventListener("scroll", syncTimeline, { passive: true });
-      window.addEventListener("resize", syncTimeline);
-      window.addEventListener("load", syncTimeline);
-      syncTimeline();
-    }
-  }
-
   // Footer year
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
