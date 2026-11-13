@@ -10,3 +10,11 @@ server.py
 images/_originals
 NEW BRANDING
 *.csv
+
+# Hidden from the live site 2026-11-13, kept on disk — see [C] Hidden Team Members.md
+team-hans.html
+team-jacob.html
+images/team/hans.jpg
+images/team/hans-color.jpg
+images/team/jacob.jpg
+images/team/jacob-color.jpg
