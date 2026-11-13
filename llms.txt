@@ -2,7 +2,7 @@
 
 > Futures Financials Inc. is a student-led 501(c)(3) nonprofit (EIN 33-1515809) that delivers hands-on financial literacy education to young people. Founded in 2022, it has reached more than 15,000 students through 150+ teach-in sessions at 70+ schools and libraries, run by 450+ student volunteers across 18+ chapters in 7 countries.
 
-The organization is run entirely by students. Its executive officers are all original founding officers. Programs are delivered in person through partner schools, libraries, and community organizations rather than through this website.
+The organization is run entirely by students. Its five executive officers are all original founding officers. Programs are delivered in person through partner schools, libraries, and community organizations rather than through this website.
 
 ## Key facts
 
@@ -21,7 +21,7 @@ The organization is run entirely by students. Its executive officers are all ori
 - [Home](https://futuresfinancials.org/): Mission overview and the state-by-state gap in guaranteed personal finance education.
 - [About Us](https://futuresfinancials.org/about-us): What the organization does and why it is youth-led.
 - [Our Story](https://futuresfinancials.org/our-story): How Futures Financials started in 2022 and how it grew.
-- [Meet the Team](https://futuresfinancials.org/meet-the-team): The founding officers and their roles.
+- [Meet the Team](https://futuresfinancials.org/meet-the-team): The five founding officers and their roles.
 - [Programs](https://futuresfinancials.org/programs): The three flagship financial literacy programs and how sessions are taught.
 - [Impact](https://futuresfinancials.org/impact): Statistics, the countries served, and partner organizations.
 - [Success Stories](https://futuresfinancials.org/success-stories): Outcomes described by students who went through the programs.
@@ -36,6 +36,7 @@ The organization is run entirely by students. Its executive officers are all ori
 - [Hans Patel](https://futuresfinancials.org/team-hans): Founding officer.
 - [Justin Pua](https://futuresfinancials.org/team-justin): Founding officer.
 - [Aren Inan](https://futuresfinancials.org/team-aren): Chief Financial Officer and founding officer.
+- [Jacob Brynczka](https://futuresfinancials.org/team-jacob): Chief Operating Officer and founding officer.
 
 ## Policies
 

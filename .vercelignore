@@ -10,8 +10,3 @@ server.py
 images/_originals
 NEW BRANDING
 *.csv
-
-# Hidden from the live site, kept on disk — see [C] Hidden Team Members.md
-team-jacob.html
-images/team/jacob.jpg
-images/team/jacob-color.jpg
