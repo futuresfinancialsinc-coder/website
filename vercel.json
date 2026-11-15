@@ -11,6 +11,16 @@
       "source": "/research-policy.html",
       "destination": "/research",
       "permanent": true
+    },
+    {
+      "source": "/success-stories",
+      "destination": "/impact",
+      "permanent": true
+    },
+    {
+      "source": "/success-stories.html",
+      "destination": "/impact",
+      "permanent": true
     }
   ],
   "headers": [
