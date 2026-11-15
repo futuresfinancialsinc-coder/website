@@ -274,4 +274,27 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }, { passive: true });
   }
+
+  // About: Why / What / How cards stack; a covered card eases back as the next slides over it.
+  const wwhCards = [...document.querySelectorAll(".wwh-card")];
+  if (wwhCards.length > 1 && !reduceMotion) {
+    let wwhTick = false;
+    const wwhUpdate = () => {
+      wwhTick = false;
+      wwhCards.forEach((card, i) => {
+        const next = wwhCards[i + 1];
+        if (!next) return;
+        const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
+        const span = Math.max(a.height, 1);
+        const p = Math.min(Math.max(1 - (b.top - a.top) / span, 0), 1);
+        card.style.transform = `scale(${(1 - 0.05 * p).toFixed(4)})`;
+        card.style.filter = `brightness(${(1 - 0.18 * p).toFixed(3)})`;
+      });
+    };
+    wwhUpdate();
+    window.addEventListener("scroll", () => {
+      if (!wwhTick) { wwhTick = true; requestAnimationFrame(wwhUpdate); }
+    }, { passive: true });
+    window.addEventListener("resize", wwhUpdate);
+  }
 });
