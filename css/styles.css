@@ -27,6 +27,7 @@
   --green-900: #193e20;   /* hero overlays, dark sections — 11.99:1 on white */
   --green-800: #22592d;   /* deep section backgrounds — 8.28:1 */
   --green-700: #1e7b42;   /* primary brand green — 5.29:1, safe for body text */
+  --green-strip: #3c7948; /* partner strip fill, picked by Aren 2026-11-15 */
   --green-600: #218f47;   /* logo leaf green — 4.13:1, LARGE TEXT ONLY */
   --green-400: #37ae4f;   /* hover, gradient midpoint — never put text on this */
   --green-300: #48c251;   /* logo leaf highlight — background only */
@@ -2714,23 +2715,29 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
       display: grid; place-items: center; transition: transform 0.5s ease; }
 .rc img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .rc-1 { top: 2%;  left: 6%;  width: 27%; aspect-ratio: 1; transform: rotate(-6deg); }
-.rc-2 { top: 0;   left: 52%; width: 21%; aspect-ratio: 1; transform: rotate(4deg); }
-.rc-3 { top: 38%; left: 0;   width: 32%; aspect-ratio: 4 / 3; transform: rotate(2deg); }
-.rc-4 { top: 34%; left: 44%; width: 38%; aspect-ratio: 520 / 320; transform: rotate(-3deg); }
+.rc-2 { top: 0;   left: 50%; width: 25%; aspect-ratio: 254 / 248; transform: rotate(4deg); }
+.rc-3 { top: 44%; left: 2%;  width: 38%; aspect-ratio: 900 / 398; transform: rotate(-2deg); }
+.rc-4 { top: 38%; left: 46%; width: 38%; aspect-ratio: 520 / 320; transform: rotate(-3deg); }
 .rc-5 { top: 72%; left: 20%; width: 52%; aspect-ratio: 560 / 175; transform: rotate(3deg); }
 .rc:hover { transform: rotate(0deg) scale(1.04); z-index: 2; }
 @media (max-width: 820px) {
   .mission-grid { grid-template-columns: 1fr; }
   .recognized__cloud { height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.1rem 1rem; padding: 0.5rem 0 1rem; }
   .rc { position: static; width: 26% !important; }
-  .rc-4 { width: 38% !important; } .rc-5 { width: 56% !important; }
+  .rc-3, .rc-4 { width: 38% !important; } .rc-5 { width: 56% !important; }
 }
-/* partner marquee inside the impact wall, logos knocked to white */
-.iw-strip { background: var(--green-700); padding: 1.5rem 0 1.3rem; position: relative; z-index: 1; }
+/* partner marquee laid over the top of the impact-wall photos, on a denser green tint */
+.iw-strip { background: var(--green-strip); padding: 1.5rem 0 1.3rem; position: relative; z-index: 1;
+             min-height: var(--iw-strip-h); box-sizing: border-box; margin-bottom: var(--section-md);
+             box-shadow: 0 10px 30px -12px rgba(10, 30, 16, 0.55); }
+/* the impact tint starts under the strip, which carries its own solid fill */
+.impact-wall { --iw-strip-h: calc(2.8rem + 52px); }
+.impact-wall .iw-tint { top: var(--iw-strip-h); }
 .iw-strip img { height: 42px; width: auto; max-width: 170px; object-fit: contain; }
-.iw-strip .marquee__square { height: 48px; }
+.iw-strip .marquee__square { height: 52px; }
+.iw-strip .marquee__wide { height: 27px; max-width: 260px; }
 .iw-strip .marquee__track { gap: clamp(2rem, 4vw, 3.4rem); padding-right: clamp(2rem, 4vw, 3.4rem); }
-.impact-wall { padding-top: var(--section-md); }
+.impact-wall { padding-top: 0; }
 /* programme cards, three across, smaller images */
 .prog-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 2.5vw, 2rem); margin-top: 1.2rem; }
 .prog-card { display: block; text-decoration: none; color: inherit; }
