@@ -2791,6 +2791,9 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
 .prog-title { text-align: center; font-size: clamp(2.2rem, 4.4vw, 3.6rem); margin: 0 0 clamp(1.8rem, 4vw, 3rem); color: var(--green-900); }
 
 /* Compact footer */
+.footer-brand-row { display: inline-flex; align-items: center; margin-bottom: 2.2rem; }
+.footer-brand-row .logo-img { width: 56px; height: auto; }
+
 .footer-grid--compact { grid-template-columns: 1fr 1fr 1.4fr 1fr; gap: 2rem; }
 .footer-grid--compact h4 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0; text-transform: none; margin-bottom: 0.9rem; }
 .footer-grid--compact ul li { margin-bottom: 0.45rem; }
