@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <g fill="none" stroke="#000" stroke-linecap="round">
+    <path d="M-120 820 C 180 620, 420 980, 640 760 S 980 300, 1220 520 S 1560 900, 1760 640" stroke-width="150"/>
+    <path d="M260 -140 C 120 140, 420 300, 300 520 S -60 760, 80 1120" stroke-width="120"/>
+    <path d="M1040 -160 C 900 80, 1240 220, 1180 420 C 1120 620, 1380 700, 1700 560" stroke-width="130"/>
+    <path d="M720 1180 C 760 980, 1000 960, 1080 1160" stroke-width="110"/>
+  </g>
+</svg>
