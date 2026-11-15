@@ -2769,9 +2769,9 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
   .rc-4 { width: 38% !important; } .rc-5 { width: 56% !important; }
 }
 /* partner marquee inside the impact wall, logos knocked to white */
-.iw-strip { background: var(--green-900); padding: 1.5rem 0 1.3rem; position: relative; z-index: 1; }
-.iw-strip img { height: 36px; width: auto; opacity: 0.95; }
-.iw-strip .marquee__square { height: 44px; }
+.iw-strip { background: var(--green-700); padding: 1.5rem 0 1.3rem; position: relative; z-index: 1; }
+.iw-strip img { height: 42px; width: auto; max-width: 170px; object-fit: contain; }
+.iw-strip .marquee__square { height: 48px; }
 .iw-strip .marquee__track { gap: clamp(2rem, 4vw, 3.4rem); padding-right: clamp(2rem, 4vw, 3.4rem); }
 .impact-wall { padding-top: var(--section-md); }
 /* programme cards, three across, smaller images */
