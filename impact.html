@@ -88,151 +88,88 @@
 
 <main id="main">
 
-  <section class="brand-hero" data-hero>
-    <div class="brand-hero__pattern" role="presentation"></div>
-    <div class="container brand-hero__inner">
-      <p class="brand-hero__wordmark">Futures Financials</p>
-      <h1 class="brand-hero__title">Impact</h1>
+  <section class="imp-open on-dark" data-hero>
+    <div class="imp-open__map" aria-hidden="true"></div>
+    <div class="container imp-open__inner">
+      <h1 class="imp-open__title"><span>18+ chapters.</span> <span>7 countries.</span> <span class="imp-open__gold">1 mission.</span></h1>
+      <p class="imp-open__lede">At Futures Financials, impact is more than a count of students. It is the first budget a student writes, and the moment compound interest stops being a word and starts being their money.</p>
+      <a class="btn btn-outline-light" href="#start">Read More</a>
     </div>
-    <a class="scroll-cue" href="#start" aria-label="Scroll to content"><span></span>Scroll</a>
   </section>
 
-  <section id="start" class="section section--darkest on-dark sweep-l">
+  <section id="start" class="imp-cloud" aria-labelledby="imp-cloud-h">
     <div class="container">
-      <div class="grid grid-4 stat-grid">
-        <div>
-          <div class="stat-num" data-count="15">15<span class="stat-suffix">K+</span></div>
-          <div class="stat-label">Students Reached</div>
-        </div>
-        <div>
-          <div class="stat-num" data-count="70">70<span class="stat-suffix">+</span></div>
-          <div class="stat-label">Schools &amp; Libraries</div>
-        </div>
-        <div>
-          <div class="stat-num" data-count="150">150<span class="stat-suffix">+</span></div>
-          <div class="stat-label">Teach-In Sessions</div>
-        </div>
-        <div>
-          <div class="stat-num">2022<span class="stat-suffix"></span></div>
-          <div class="stat-label">Founded</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="photo-band">
-    <img class="photo-band__img" src="images/session-media-center.jpg"
-         alt="A Futures Financials session filling a school media center" />
-    <div class="photo-band__wash" role="presentation"></div>
-    <div class="container photo-band__text">
-      <h2>What the numbers do not show</h2>
-      <p>The first budget a student writes, and the moment compound interest stops being a word and starts being their money.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head center">
-        <span class="tag">Where We Work</span>
-        <h2 class="section-title">Our chapters span <span class="hl">7 countries</span></h2>
-      </div>
-      <div class="map-frame" id="world-map" data-src="images/world.svg" aria-label="World map highlighting the countries where Futures Financials operates"></div>
-      <div class="map-tooltip" id="map-tooltip" role="status"></div>
-      <div class="map-legend">
-        <span class="chip">United States: NJ · SD · CA · NC · TX · NY</span>
-        <span class="chip">India</span>
-        <span class="chip">UAE</span>
-        <span class="chip">Uruguay</span>
-        <span class="chip">Uzbekistan</span>
-        <span class="chip">China</span>
-        <span class="chip">Canada</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--tint sweep-r">
-    <div class="container">
-      <div class="section-head center">
-        <span class="tag">In Partnership</span>
-        <h2 class="section-title">Working alongside <span class="hl">our partners</span></h2>
-      </div>
-      <ul class="partner-wall partner-wall--compact">
-        <li>
-          <a class="partner-cell" href="https://www.ngpf.org/" target="_blank" rel="noopener">
-            <span class="partner-cell__art">
-              <img src="images/partners/ngpf.png" alt="Next Gen Personal Finance logo" loading="lazy" />
-            </span>
-            <span class="partner-cell__go">Visit site &rarr;</span>
-          </a>
-        </li>
-        <li>
-          <a class="partner-cell" href="https://jausa.ja.org/" target="_blank" rel="noopener">
-            <span class="partner-cell__art">
-              <img src="images/partners/junior-achievement.png" alt="Junior Achievement logo" loading="lazy" />
-            </span>
-            <span class="partner-cell__go">Visit site &rarr;</span>
-          </a>
-        </li>
-        <li>
-          <a class="partner-cell" href="https://www.jumpstart.org/" target="_blank" rel="noopener">
-            <span class="partner-cell__art">
-              <img src="images/partners/jumpstart-coalition.png" alt="Jump$tart Coalition logo" loading="lazy" />
-            </span>
-            <span class="partner-cell__go">Visit site &rarr;</span>
-          </a>
-        </li>
-        <li>
-          <a class="partner-cell" href="https://www.google.com/nonprofits/" target="_blank" rel="noopener">
-            <span class="partner-cell__art">
-              <img src="images/partners/google-for-nonprofits.png" alt="Google for Nonprofits logo" loading="lazy" />
-            </span>
-            <span class="partner-cell__go">Visit site &rarr;</span>
-          </a>
-        </li>
-        <li>
-          <a class="partner-cell" href="https://finmango.org/" target="_blank" rel="noopener">
-            <span class="partner-cell__art">
-              <img src="images/partners/finmango.png" alt="FinMango logo" loading="lazy" />
-            </span>
-            <span class="partner-cell__go">Visit site &rarr;</span>
-          </a>
-        </li>
-        <li>
-          <a class="partner-cell" href="https://fly-initiative.org" target="_blank" rel="noopener">
-            <span class="partner-cell__art">
-              <img src="images/partners/fly-initiative.png" alt="Financial Literacy for Youth Initiative logo" loading="lazy" />
-            </span>
-            <span class="partner-cell__go">Visit site &rarr;</span>
-          </a>
-        </li>
+      <h2 id="imp-cloud-h" class="sr-only">Where we teach</h2>
+      <ul class="wc-list">
+        <li class="wc wc--s wc-ca">North Carolina</li>
+        <li class="wc wc--m wc-cd">China</li>
+        <li class="wc wc--xl wc-ca">United States</li>
+        <li class="wc wc--m wc-cc">Uruguay</li>
+        <li class="wc wc--s wc-cd">New York</li>
+        <li class="wc wc--l wc-cb">India</li>
+        <li class="wc wc--l wc-ca">New Jersey</li>
+        <li class="wc wc--s wc-cc">Texas</li>
+        <li class="wc wc--m wc-cb">United Arab Emirates</li>
+        <li class="wc wc--l wc-cc">Canada</li>
+        <li class="wc wc--s wc-cd">South Dakota</li>
+        <li class="wc wc--m wc-ca">Uzbekistan</li>
+        <li class="wc wc--s wc-cb">California</li>
       </ul>
+    </div>
+  </section>
+
+  <section class="imp-reach">
+    <div class="container imp-reach__grid">
+      <div class="phone" role="img" aria-label="The Futures Financials Instagram profile, @futuresfinancials, with recent posts">
+        <div class="phone__screen">
+          <img class="phone__shot" src="images/ig-profile-header.jpg" alt="" width="720" height="561" />
+          <img class="phone__shot" src="images/ig-posts-grid.jpg" alt="" width="720" height="964" loading="lazy" />
+        </div>
       </div>
-      <div class="cta-actions" style="margin-top: 2.5rem;">
-        <a class="btn btn-outline" href="/our-partners">See All Partners</a>
+      <div class="imp-reach__text">
+        <h2 class="imp-reach__title">Our <img class="imp-reach__script" src="images/script-reach.png" alt="" /><span class="sr-only">Reach</span> Beyond Borders</h2>
+        <p>While the list above shows where our chapters teach, every session reaches further than the room it happens in: a community of students sharing what they learned with friends and family online.</p>
+        <p>On Instagram, we share moments from the classroom, behind-the-scenes looks at chapter events and press, and easy ways for students to volunteer or start a chapter of their own.</p>
+        <a class="btn btn-gold" href="https://www.instagram.com/futuresfinancials/" target="_blank" rel="noopener">Follow our journey</a>
       </div>
     </div>
   </section>
 
-
-  <section class="section">
+  <section class="imp-cards on-dark">
     <div class="container">
-      <h2 class="section-title center">Sessions this year</h2>
-      <div class="cluster">
-        <figure class="c1"><img src="images/session-library-stacks.jpg" alt="A session running between the stacks of a school library" loading="lazy" /></figure>
-        <figure class="c2"><img src="images/teaching-2.jpg" alt="A Futures Financials session running with a class" loading="lazy" /></figure>
-        <figure class="c3"><img src="images/library-session-scenario.jpg" alt="Students working through a credit card scenario at a Futures Financials library session" loading="lazy" /></figure>
-        <figure class="c4"><img src="images/session-small-group.jpg" alt="Students working in small groups during a session" loading="lazy" /></figure>
-        <figure class="c5"><img src="images/press-camera.jpg" alt="A Futures Financials session being filmed" loading="lazy" /></figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--dark on-dark cta-band">
-    <div class="container">
-      <h2>Help us grow the impact</h2>
-      <div class="cta-actions">
-        <a class="btn btn-outline-light" href="/start-a-chapter">Start a Chapter</a>
-      </div>
+      <p class="imp-cards__intro">Every session we teach has two effects: what a student does with money this week, and the habits they carry for years.</p>
+      <article class="ic ic--right">
+        <figure class="ic__photo"><img src="images/teaching-2.jpg" alt="Students raising their hands during a Futures Financials scenario lesson" loading="lazy" /><span class="ic__sticker">15,000+ students taught!</span></figure>
+        <div class="ic__card">
+          <h3 class="ic__title">Building Money Confidence</h3>
+          <p>Interactive lessons on budgeting, saving, credit, and investing turn abstract ideas into decisions students make for themselves.</p>
+          <p>Pop-culture examples and real-life scenarios keep students engaged, so the lesson sticks after the bell rings.</p>
+        </div>
+      </article>
+      <article class="ic ic--left">
+        <figure class="ic__photo"><img src="images/library-financial-literacy.jpg" alt="Two volunteers teaching a financial literacy lesson to children at a public library" loading="lazy" /><span class="ic__sticker">450+ student volunteers!</span></figure>
+        <div class="ic__card">
+          <h3 class="ic__title">Inspiring the Next Generation</h3>
+          <p>Student volunteers learn to teach, mentor, and lead, building skills most people do not practice until adulthood.</p>
+          <p>Explaining a concept to a full classroom deepens their own understanding of money and how to use it.</p>
+        </div>
+      </article>
+      <article class="ic ic--right">
+        <figure class="ic__photo"><img src="images/library-credit-scenario.jpg" alt="A volunteer leading a credit card scenario at a library session" loading="lazy" /><span class="ic__sticker">70+ schools &amp; libraries!</span></figure>
+        <div class="ic__card">
+          <h3 class="ic__title">Reaching Schools &amp; Libraries</h3>
+          <p>We bring ready-to-run financial literacy sessions to classrooms and public libraries where students might never get one otherwise.</p>
+          <p>Teachers and librarians gain a student-led partner that fits lessons to the age and needs of the room.</p>
+        </div>
+      </article>
+      <article class="ic ic--left">
+        <figure class="ic__photo"><img src="images/session-tradeoff.jpg" alt="Two volunteers asking a class what a trade-off is" loading="lazy" /><span class="ic__sticker">18+ chapters in 7 countries!</span></figure>
+        <div class="ic__card">
+          <h3 class="ic__title">Growing Chapters Worldwide</h3>
+          <p>Chapters let students start Futures Financials in their own school or community and adapt lessons to the people they teach.</p>
+          <p>Each new chapter extends our reach while keeping the model that makes it work: students teaching students.</p>
+        </div>
+      </article>
     </div>
   </section>
 
