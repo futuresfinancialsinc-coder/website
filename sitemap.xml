@@ -29,8 +29,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://futuresfinancials.org/research-policy</loc>
-    <lastmod>2026-11-03</lastmod>
+    <loc>https://futuresfinancials.org/research</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://futuresfinancials.org/policy</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/research-policy",
+      "destination": "/research",
+      "permanent": true
+    },
+    {
+      "source": "/research-policy.html",
+      "destination": "/research",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

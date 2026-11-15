@@ -22,7 +22,9 @@ The organization is run entirely by students. Its five executive officers are it
 - [About Us](https://futuresfinancials.org/about-us): What the organization does and why it is youth-led.
 - [Our Story](https://futuresfinancials.org/our-story): How Futures Financials started in 2022 and how it grew.
 - [Meet the Team](https://futuresfinancials.org/meet-the-team): The founder, the four co-founders, and their roles.
-- [Programs](https://futuresfinancials.org/programs): The three flagship financial literacy programs and how sessions are taught.
+- [Curricula](https://futuresfinancials.org/programs): The three flagship financial literacy curricula and how sessions are taught.
+- [Research](https://futuresfinancials.org/research): Published and working research papers by Futures Financials students.
+- [Policy](https://futuresfinancials.org/policy): New Jersey financial education bills the organization is working on.
 - [Impact](https://futuresfinancials.org/impact): Statistics, the countries served, and partner organizations.
 - [Success Stories](https://futuresfinancials.org/success-stories): Outcomes described by students who went through the programs.
 - [In the News](https://futuresfinancials.org/media): Press coverage, broadcast segments, and podcast appearances.
