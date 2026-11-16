@@ -3509,3 +3509,92 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
 @media (max-width: 820px) { .pol__grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .pol-card__img { transition: none; } .pol-card__img:hover, .pol-card__img:focus-visible { transform: none; } }
 .brand-hero + .pol { padding-top: clamp(3.5rem, 7vw, 5.5rem); }
+
+/* ===== Research: PDF preview grid (2026-11-15, Phase 4) ===== */
+.rp { background: var(--green-50, #f3f8f4); }
+.rp-group {
+  font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--green-800); margin: 0 0 1.6rem;
+  padding-bottom: 0.8rem; border-bottom: 1px solid var(--line);
+}
+.rp-grid + .rp-group { margin-top: clamp(3rem, 6vw, 4.5rem); }
+.rp-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: clamp(1.2rem, 2.2vw, 2rem) clamp(1rem, 1.8vw, 1.6rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 640px)  { .rp-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .rp-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.rp-link { display: flex; flex-direction: column; height: 100%; color: inherit; text-decoration: none; }
+.rp-cover {
+  position: relative; display: block; aspect-ratio: 8.5 / 11; overflow: hidden;
+  background: #fff; border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(15, 40, 22, 0.08), 0 8px 22px -10px rgba(15, 40, 22, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rp-cover img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.rp-cover__cta {
+  position: absolute; inset: auto 0 0 0; padding: 0.7rem 0.8rem;
+  background: linear-gradient(to top, rgba(25, 62, 32, 0.92), rgba(25, 62, 32, 0));
+  color: #fff; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.01em;
+  opacity: 0; transform: translateY(6px); transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.rp-link:hover .rp-cover, .rp-link:focus-visible .rp-cover {
+  transform: translateY(-6px);
+  box-shadow: 0 2px 4px rgba(15, 40, 22, 0.1), 0 18px 34px -12px rgba(15, 40, 22, 0.45);
+}
+.rp-link:hover .rp-cover__cta, .rp-link:focus-visible .rp-cover__cta { opacity: 1; transform: none; }
+.rp-link:focus-visible { outline: none; }
+.rp-link:focus-visible .rp-cover { outline: 3px solid var(--gold, #d4a72c); outline-offset: 3px; }
+/* Web-only papers (FinMango) get a typeset cover in place of a PDF page */
+.rp-cover__web {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  padding: 12% 11%; background: #fff; border-top: 6px solid var(--green-700);
+}
+.rp-cover__venue { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-700); }
+.rp-cover__title {
+  margin-top: 1.1rem; font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(0.85rem, 1.15vw, 1.02rem); line-height: 1.35; color: var(--green-900, #10261a);
+}
+.rp-cover__by { margin-top: auto; font-size: 0.72rem; color: var(--muted); }
+.rp-title {
+  display: block; margin-top: 1rem; font-weight: 700; font-size: 0.98rem; line-height: 1.3;
+  color: var(--green-800);
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.rp-link:hover .rp-title { color: var(--green-700); }
+.rp-meta { display: block; margin-top: 0.45rem; font-size: 0.86rem; line-height: 1.45; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) {
+  .rp-cover, .rp-cover__cta { transition: none; }
+  .rp-link:hover .rp-cover { transform: none; }
+}
+
+/* Policy: died-in-committee status in red */
+.pol-card__status--died { color: #c0392b; }
+.pol-card__status--died::before { background: #c0392b; }
+
+/* Research: FinMango Ambassador Notes covers (orange, logo top, title centred) */
+.rp-cover__web {
+  border-top: 0; background: #ed7445; color: #fff;
+  align-items: center; text-align: center; padding: 11% 10% 10%;
+}
+.rp-cover .rp-cover__logo { width: 48%; height: auto; object-fit: contain; display: block; flex: none; }
+.rp-cover__web .rp-cover__title {
+  margin: auto 0; color: #fff; font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(0.82rem, 1.12vw, 1rem); line-height: 1.35;
+}
+.rp-cover__web .rp-cover__venue {
+  color: rgba(255, 255, 255, 0.88); font-size: 0.62rem; letter-spacing: 0.12em;
+}
+
+/* FinMango covers: their headline face (DM Sans Black, tight tracking), self-hosted */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/dm-sans-latin-900-normal.woff2") format("woff2");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+.rp-cover .rp-cover__logo { width: 62%; }
+.rp-cover__web .rp-cover__title {
+  font-family: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900; letter-spacing: -0.045em; line-height: 1.04;
+  font-size: clamp(0.98rem, 1.45vw, 1.28rem);
+}
