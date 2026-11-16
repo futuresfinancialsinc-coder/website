@@ -3266,17 +3266,6 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
 .vol-team__btn:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
 @media (max-width: 720px) { .vol-teams { grid-template-columns: 1fr; } }
 
-/* Step 2: an example assignment email */
-.vol-mail { max-width: 640px; margin: clamp(2rem, 4vw, 2.8rem) auto 0; text-align: left; background: var(--white); color: var(--ink); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3); }
-.vol-mail__bar { display: flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1rem; background: var(--green-50); border-bottom: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
-.vol-mail__bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
-.vol-mail__bar b { margin-left: 0.6rem; font-weight: 700; color: var(--green-900); }
-.vol-mail__bar em { margin-left: auto; font-style: normal; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-dark); }
-.vol-mail__msg { padding: 1.3rem 1.5rem 1.4rem; }
-.vol-mail__from { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem; }
-.vol-mail__from strong { display: block; color: var(--green-900); font-size: 0.98rem; }
-.vol-mail__from small { color: var(--muted); font-size: 0.82rem; }
-.vol-mail__avatar { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--green-700); color: var(--white); font-weight: 700; font-size: 0.85rem; }
-.on-dark .vol-mail p { color: var(--ink); font-size: 0.98rem; line-height: 1.5; margin: 0 0 0.7rem; }
-.on-dark .vol-mail .vol-mail__subject { font-family: var(--font-display); font-size: 1.25rem; color: var(--green-800); margin-bottom: 0.6rem; }
-.vol-mail ul { margin: 0 0 0.8rem 1.2rem; padding: 0; color: var(--ink); font-size: 0.98rem; line-height: 1.6; }
+/* Step 2: Aren's sample assignment email, shown as a card */
+.vol-email { max-width: 760px; margin: clamp(2rem, 4vw, 2.8rem) auto 0; }
+.vol-email img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3); }
