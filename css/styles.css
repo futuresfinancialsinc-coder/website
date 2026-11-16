@@ -3321,3 +3321,15 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
 .ch-stats { display: flex; justify-content: center; gap: clamp(3rem, 12vw, 9rem); margin-top: clamp(2.5rem, 5vw, 3.5rem); }
 .ch-stats__n { display: block; font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: clamp(4.5rem, 11vw, 8.5rem); line-height: 1; }
 .ch-stats__l { display: block; color: var(--white); font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.4rem); margin-top: 0.4rem; }
+
+/* Chapters opening: muted FOX 5 clip (Danny, then the classroom) behind the headline */
+.ch-hero { position: relative; isolation: isolate; overflow: clip; min-height: min(78svh, 760px); display: flex; align-items: center; justify-content: center; background: var(--green-900); color: var(--white); padding: calc(var(--header-h) + 2rem) 0 3rem; }
+.ch-hero__video { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.ch-hero__tint { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(18, 45, 25, 0.62) 0%, rgba(18, 45, 25, 0.5) 45%, rgba(34, 89, 45, 0.88) 100%); }
+.ch-hero__inner { text-align: center; }
+.ch-hero__title { color: var(--white); font-weight: 400; font-size: clamp(2.6rem, 6.6vw, 5.6rem); line-height: 1.04; letter-spacing: -0.015em; max-width: 14ch; margin: 0 auto; text-shadow: 0 4px 30px rgba(10, 30, 16, 0.55); }
+.ch-hero + .ch-what { padding-top: clamp(3rem, 6vw, 4.5rem); }
+
+/* Chapters steps: flat illustrations instead of icon circles */
+.ch-steps__art { display: block; width: 100%; max-width: 300px; height: auto; margin: 0 auto 1.2rem; }
+.ch-steps__n { z-index: 1; }

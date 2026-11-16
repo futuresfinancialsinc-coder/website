@@ -153,6 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Animated stat counters (skipped if reduced motion is preferred)
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Background video: hold on the poster frame when reduced motion is preferred
+  if (reduceMotion) {
+    document.querySelectorAll("video[autoplay]").forEach((v) => {
+      v.removeAttribute("autoplay");
+      v.pause();
+    });
+  }
   const counters = document.querySelectorAll(".stat-num[data-count]");
   if (counters.length) {
     const animate = (el) => {
