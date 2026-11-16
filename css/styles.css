@@ -3464,3 +3464,19 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
 @media (max-width: 860px) { .pt-form__grid { grid-template-columns: 1fr; } }
 
 .on-dark .legal__date, .legal .legal__date { color: var(--gold-light); font-size: 0.98rem; margin: -1.2rem 0 2.2rem; text-align: center; }
+
+/* Partners: Trusted Partners text dead centre, logos orbiting it on all sides */
+.pt-orbit { position: relative; height: clamp(760px, 62vw, 880px); max-width: 1240px; }
+.pt-orbit__center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(460px, 40%); text-align: center; z-index: 1; }
+.pt-orbit__center h2 { color: var(--green-800); font-weight: 700; font-size: clamp(2.2rem, 3.8vw, 3.2rem); line-height: 1.05; margin: 0 0 1rem; }
+.pt-orbit__center p { color: var(--green-800); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.5; margin: 0; }
+.pt-orbit__logos { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; }
+.pt-orbit__logos li { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); width: clamp(120px, 12vw, 160px); height: clamp(80px, 7.5vw, 104px); display: flex; align-items: center; justify-content: center; }
+.pt-orbit__logos img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+@media (max-width: 860px) {
+  .pt-orbit { height: auto; }
+  .pt-orbit__center { position: static; transform: none; width: auto; margin: 0 auto 2.5rem; max-width: 46ch; }
+  .pt-orbit__logos { position: static; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem 1rem; }
+  .pt-orbit__logos li { position: static; transform: none; width: auto; height: 96px; }
+}
+@media (max-width: 480px) { .pt-orbit__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
