@@ -3480,3 +3480,7 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
   .pt-orbit__logos li { position: static; transform: none; width: auto; height: 96px; }
 }
 @media (max-width: 480px) { .pt-orbit__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pt-orbit__logos a { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; border-radius: 12px; transition: transform 0.2s ease; }
+.pt-orbit__logos a:hover, .pt-orbit__logos a:focus-visible { transform: scale(1.08); }
+.pt-orbit__logos a:focus-visible { outline: 3px solid var(--gold); outline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) { .pt-orbit__logos a { transition: none; } .pt-orbit__logos a:hover, .pt-orbit__logos a:focus-visible { transform: none; } }
