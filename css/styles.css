@@ -3197,3 +3197,23 @@ main > section:first-child:not([data-hero]):not(.bio-hero) {
 }
 .ft .footer-contact-line a { color: rgba(255, 255, 255, 0.85); text-decoration: none; overflow-wrap: anywhere; }
 .ft .footer-contact-line a:hover, .ft .footer-contact-line a:focus-visible { color: var(--gold); }
+
+/* ============================================================
+   Legal pages, CKF-style (2026-11-15): no title screen; the page
+   opens on its title and the text runs on one brand-green field
+   ============================================================ */
+main > section.legal.legal:first-child:not(.x) {
+  background: var(--green-800); color: var(--white);
+  padding: calc(var(--header-h) + clamp(3.5rem, 9vw, 7rem)) 0 clamp(4rem, 8vw, 6rem);
+}
+.legal--empty { min-height: min(70svh, 640px); }
+.legal__inner { width: min(1120px, 100% - 2rem); }
+.legal__title { text-align: center; color: var(--white); font-weight: 400; font-size: clamp(2.6rem, 6.5vw, 5.2rem); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 clamp(2.2rem, 5vw, 3.6rem); }
+.legal .legal-body { max-width: none; }
+.legal .legal-body h2 { color: var(--white); font-size: clamp(1.5rem, 2.6vw, 2.1rem); margin: 2.8rem 0 0.9rem; }
+.legal .legal-body h2:first-child { margin-top: 0; }
+.legal .legal-body p { color: rgba(255, 255, 255, 0.9); font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.65; margin: 0 0 1.1rem; }
+.legal .legal-body a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 0.18em; overflow-wrap: anywhere; }
+.legal .legal-body a:hover, .legal .legal-body a:focus-visible { color: var(--white); }
+/* On legal pages the solid bar takes the page's own green, so header and page read as one field */
+body:has(main > section.legal:first-child) .site-header.is-solid { background: var(--green-800); border-bottom-color: transparent; box-shadow: none; }
