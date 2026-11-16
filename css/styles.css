@@ -3598,3 +3598,118 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
   font-weight: 900; letter-spacing: -0.045em; line-height: 1.04;
   font-size: clamp(0.98rem, 1.45vw, 1.28rem);
 }
+
+/* ===== Curricula (programs.html), CKF Service Programs model, 2026-11-16 ===== */
+.cu-hero {
+  position: relative; isolation: isolate; overflow: clip; color: var(--white);
+  min-height: min(94svh, 900px); display: flex; align-items: stretch;
+  padding: calc(var(--header-h) + 1.5rem) 0 2.6rem; background: var(--green-950);
+}
+.cu-hero__img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+.cu-hero__tint {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(18, 45, 25, 0.72) 0%, rgba(18, 45, 25, 0.48) 42%, rgba(18, 45, 25, 0.82) 100%);
+}
+.cu-hero__inner {
+  display: grid; grid-template-columns: 1fr auto 1fr; grid-template-rows: auto 1fr auto;
+  gap: 1.5rem 2rem; align-items: end;
+}
+.cu-hero__title { grid-column: 1 / -1; grid-row: 1; margin: clamp(0.5rem, 3vw, 2rem) 0 0; text-align: center; position: relative; line-height: 1; }
+.cu-hero__script {
+  display: block; width: clamp(130px, 17vw, 250px); height: auto; margin: 0 auto -0.12em;
+  transform: translateX(-62%) rotate(-6deg); filter: drop-shadow(0 4px 14px rgba(10, 30, 16, 0.5));
+}
+.cu-hero__word {
+  display: inline-block; color: var(--gold-light); font-weight: 800; letter-spacing: -0.02em;
+  font-size: clamp(3.6rem, 12.5vw, 10.5rem); line-height: 0.95; text-shadow: 0 6px 34px rgba(10, 30, 16, 0.55);
+}
+.cu-hero__side { grid-row: 2; align-self: end; margin: 0; font-size: clamp(1.02rem, 1.5vw, 1.32rem); line-height: 1.4; max-width: 19rem; text-shadow: 0 2px 14px rgba(10, 30, 16, 0.7); }
+.cu-hero__side--l { grid-column: 1; }
+.cu-hero__side--r { grid-column: 3; justify-self: end; text-align: right; }
+.cu-hero .hl { color: var(--gold-light); font-weight: 700; }
+.cu-hero__btn {
+  grid-column: 1 / -1; grid-row: 3; justify-self: center; margin-top: 1rem;
+  display: inline-flex; align-items: center; justify-content: center; min-width: min(100%, 22rem);
+  padding: 1rem 2.6rem; border-radius: var(--radius-pill); background: var(--gold); color: var(--green-950);
+  font-weight: 800; font-size: 1.15rem; text-decoration: none; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.cu-hero__btn:hover, .cu-hero__btn:focus-visible { background: var(--gold-light); transform: translateY(-2px); }
+@media (max-width: 760px) {
+  .cu-hero { min-height: auto; }
+  .cu-hero__inner { grid-template-columns: 1fr; grid-template-rows: auto; text-align: center; gap: 1.1rem; }
+  .cu-hero__title, .cu-hero__side, .cu-hero__btn { grid-column: 1; grid-row: auto; }
+  .cu-hero__side, .cu-hero__side--r { justify-self: center; text-align: center; max-width: 30rem; }
+  .cu-hero__side--l { margin-top: 1.4rem; }
+}
+
+/* Deck cards: three small Canva previews, each opens the full deck */
+.cu-decks { background: var(--green-50); padding: clamp(2.6rem, 6vw, 4.5rem) 0; }
+.cu-decks__grid { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(1rem, 2vw, 1.6rem); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 860px) { .cu-decks__grid { grid-template-columns: 1fr; max-width: 30rem; margin: 0 auto; } }
+.cu-deck {
+  position: relative; display: flex; flex-direction: column; height: 100%; overflow: hidden;
+  border-radius: var(--radius-lg); background: var(--green-900); color: var(--white); text-decoration: none;
+  box-shadow: 0 10px 30px -14px rgba(15, 40, 22, 0.55); transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.cu-deck__frame { position: relative; display: block; aspect-ratio: 16 / 9; background: #fff; overflow: hidden; }
+.cu-deck__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.cu-deck__text { display: block; padding: 1.1rem 4.6rem 1.3rem 1.3rem; }
+.cu-deck__grade { display: block; color: var(--gold-light); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.cu-deck__title { display: block; margin-top: 0.3rem; font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.15; font-weight: 700; }
+.cu-deck__go {
+  position: absolute; right: 1.1rem; bottom: 1.1rem; width: 2.9rem; height: 2.9rem; border-radius: 50%;
+  display: grid; place-items: center; background: var(--gold); color: var(--green-950); transition: transform 0.25s ease, background 0.25s ease;
+}
+.cu-deck:hover, .cu-deck:focus-visible { transform: translateY(-5px); box-shadow: 0 18px 36px -14px rgba(15, 40, 22, 0.6); }
+.cu-deck:hover .cu-deck__go, .cu-deck:focus-visible .cu-deck__go { background: var(--gold-light); transform: rotate(-45deg); }
+.cu-deck:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* Program sections: giant title, gold tagline, ghost numeral, pop-culture cutout */
+.cu-prog { position: relative; isolation: isolate; overflow: clip; color: var(--white); padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+.cu-prog--01 { background: var(--green-900); }
+.cu-prog--02 { background: #1c4d29; }
+.cu-prog--03 { background: var(--green-950); }
+.cu-prog__num {
+  position: absolute; z-index: -1; top: -0.12em; right: 2vw; font-family: var(--font-numeral); font-weight: 400;
+  font-size: clamp(9rem, 26vw, 22rem); line-height: 1; color: rgba(255, 255, 255, 0.07); pointer-events: none;
+}
+.cu-prog__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (max-width: 860px) { .cu-prog__grid { grid-template-columns: 1fr; } }
+.cu-prog__title { margin: 0; color: var(--white); }
+.cu-prog__big {
+  display: block; font-weight: 400; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92;
+  font-size: clamp(2.7rem, 7.4vw, 6.2rem); hyphens: manual;
+}
+.cu-prog__tag {
+  display: block; margin-top: 0.9rem; color: var(--gold-light); font-weight: 400; text-transform: uppercase;
+  letter-spacing: 0.04em; font-size: clamp(1.15rem, 2.2vw, 1.7rem); line-height: 1.1;
+}
+.cu-prog__grade { margin: 1.6rem 0 0; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); }
+.cu-prog__lede { margin: 0.6rem 0 0; max-width: 30ch; font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.35; font-weight: 600; color: var(--white); }
+.cu-prog .hl { color: var(--gold-light); }
+.cu-prog__art { display: flex; justify-content: center; }
+.cu-prog__png {
+  width: min(88%, 23rem); height: auto; filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.4));
+  animation: cu-bob 5.5s ease-in-out infinite;
+}
+.cu-prog__png--tilt-l { --tilt: -7deg; }
+.cu-prog__png--tilt-r { --tilt: 6deg; }
+@keyframes cu-bob { 0%, 100% { transform: rotate(var(--tilt, 0deg)) translateY(0); } 50% { transform: rotate(var(--tilt, 0deg)) translateY(-12px); } }
+.cu-prog__photo { width: min(100%, 30rem); height: auto; border-radius: 20px; transform: rotate(2.5deg); box-shadow: 0 24px 46px -18px rgba(0, 0, 0, 0.65); }
+@media (prefers-reduced-motion: reduce) { .cu-prog__png { animation: none; transform: rotate(var(--tilt, 0deg)); } }
+
+/* Photo with italic serif line (CKF "Each card reminds..." pattern) */
+.cu-quote { background: var(--white); padding: clamp(2.6rem, 6vw, 4.5rem) 0; }
+.cu-quote__fig { position: relative; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; padding: 0; }
+.cu-quote__fig img { display: block; width: 100%; aspect-ratio: 21 / 10; object-fit: cover; object-position: center 40%; }
+.cu-quote__fig::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18, 45, 25, 0.88) 0%, rgba(18, 45, 25, 0.55) 30%, rgba(18, 45, 25, 0) 62%); }
+.cu-quote__fig figcaption {
+  position: absolute; z-index: 1; top: clamp(1.2rem, 4vw, 2.6rem); left: 50%; transform: translateX(-50%); width: min(92%, 40rem);
+  text-align: center; color: var(--white); font-family: "Libre Baskerville", Georgia, serif; font-style: italic;
+  font-size: clamp(1.15rem, 2.8vw, 2.2rem); line-height: 1.25; text-shadow: 0 2px 16px rgba(10, 30, 16, 0.6);
+}
+.cu-quote .hl { color: var(--gold-light); }
+@media (max-width: 600px) { .cu-quote__fig img { aspect-ratio: 4 / 3; } }
+
+.cu-legal { margin: 0 auto; padding-top: 1.6rem; padding-bottom: 1.6rem; font-size: 0.8rem; line-height: 1.5; color: var(--muted); text-align: center; max-width: 60rem; }
