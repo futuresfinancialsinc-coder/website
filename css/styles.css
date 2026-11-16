@@ -3217,3 +3217,66 @@ main > section.legal.legal:first-child:not(.x) {
 .legal .legal-body a:hover, .legal .legal-body a:focus-visible { color: var(--white); }
 /* On legal pages the solid bar takes the page's own green, so header and page read as one field */
 body:has(main > section.legal:first-child) .site-header.is-solid { background: var(--green-800); border-bottom-color: transparent; box-shadow: none; }
+
+/* ============================================================
+   Volunteer, CKF-modelled (2026-11-15)
+   ============================================================ */
+/* Opening: scattered, muted photos with the headline over them */
+.vol-hero { position: relative; isolation: isolate; overflow: clip; background: var(--green-800); color: var(--white); min-height: clamp(720px, 68vw, 980px); display: flex; align-items: center; justify-content: center; padding: calc(var(--header-h) + 2rem) 1rem 3rem; }
+.vol-hero__photos { position: absolute; inset: 0; z-index: -1; max-width: 1240px; margin: 0 auto; }
+.vh { position: absolute; display: block; height: auto; border-radius: 6px; filter: saturate(0.75) brightness(0.62); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25); }
+.vh-1 { left: 4%; top: 12%; width: 28%; }
+.vh-2 { right: 5%; top: 5%; width: 20%; }
+.vh-3 { right: 3%; top: 49%; width: 28%; }
+.vh-4 { left: 6%; top: 52%; width: 28%; }
+.vh-5 { left: 44%; top: 70%; width: 13%; }
+.vh-6 { left: 25%; top: 79%; width: 17%; }
+.vol-hero__text { text-align: center; width: min(900px, 100%); position: relative; }
+.vol-hero__title { color: var(--white); font-weight: 400; font-size: clamp(2.5rem, 6.4vw, 5.4rem); line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 1.4rem; text-shadow: 0 4px 30px rgba(10, 30, 16, 0.6); }
+.vol-hero__lede { color: var(--white); font-size: clamp(1.05rem, 1.6vw, 1.35rem); margin: 0 auto; max-width: 44ch; text-shadow: 0 2px 16px rgba(10, 30, 16, 0.75); }
+@media (max-width: 760px) {
+  .vol-hero { flex-direction: column; min-height: 0; padding-bottom: 2rem; }
+  .vol-hero__photos { position: static; z-index: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; order: 2; margin-top: 2rem; width: 100%; }
+  .vh { position: static; width: 100% !important; aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(0.85) brightness(0.8); }
+  .vh-5, .vh-6 { display: none; }
+}
+
+/* Ready to make a difference */
+.vol-act { background: var(--white); padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.vol-act__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.vol-act__title { color: var(--green-800); font-weight: 400; font-size: clamp(2.2rem, 4.4vw, 3.6rem); line-height: 1.05; margin: 0 0 1.1rem; }
+.vol-act p { color: var(--green-900); font-size: clamp(1.02rem, 1.35vw, 1.18rem); line-height: 1.55; max-width: 46ch; margin: 0; }
+.vol-act__photo { margin: 0; }
+.vol-act__photo img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: var(--shadow-card); }
+@media (max-width: 820px) { .vol-act__grid { grid-template-columns: 1fr; } }
+
+/* Steps */
+.vol-steps { background: var(--green-800); color: var(--white); padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(4rem, 8vw, 6.5rem); }
+.vol-step { text-align: center; }
+.vol-step + .vol-step { margin-top: clamp(3.5rem, 7vw, 5.5rem); }
+.on-dark .vol-step__title { color: var(--gold-light); font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.1; margin: 0 0 0.9rem; }
+.on-dark .vol-step__lede { color: var(--white); font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.45; max-width: 36ch; margin: 0 auto; }
+.vol-teams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.2rem, 3vw, 2.5rem); max-width: 940px; margin: clamp(2rem, 4vw, 3rem) auto 0; text-align: left; }
+.vol-team { display: flex; flex-direction: column; border: 2px solid rgba(255, 255, 255, 0.85); border-radius: 12px; padding: 1.1rem; }
+.vol-team img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 9px; }
+.on-dark .vol-team h3 { color: var(--white); font-size: clamp(1.35rem, 2.2vw, 1.75rem); font-weight: 700; margin: 1rem 0 0.5rem; }
+.on-dark .vol-team p { color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.5; margin: 0 0 1.4rem; }
+.vol-team__btn { margin-top: auto; display: block; text-align: center; padding: 0.8rem 1rem; border-radius: 6px; background: rgba(255, 255, 255, 0.14); color: var(--white); text-decoration: none; font-size: 1.05rem; transition: background 0.2s ease, color 0.2s ease; }
+.vol-team__btn:hover, .vol-team__btn:focus-visible { background: var(--gold); color: var(--green-950); }
+.vol-team__btn:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
+@media (max-width: 720px) { .vol-teams { grid-template-columns: 1fr; } }
+
+/* Step 2: an example assignment email */
+.vol-mail { max-width: 640px; margin: clamp(2rem, 4vw, 2.8rem) auto 0; text-align: left; background: var(--white); color: var(--ink); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3); }
+.vol-mail__bar { display: flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1rem; background: var(--green-50); border-bottom: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+.vol-mail__bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.vol-mail__bar b { margin-left: 0.6rem; font-weight: 700; color: var(--green-900); }
+.vol-mail__bar em { margin-left: auto; font-style: normal; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-dark); }
+.vol-mail__msg { padding: 1.3rem 1.5rem 1.4rem; }
+.vol-mail__from { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.9rem; }
+.vol-mail__from strong { display: block; color: var(--green-900); font-size: 0.98rem; }
+.vol-mail__from small { color: var(--muted); font-size: 0.82rem; }
+.vol-mail__avatar { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--green-700); color: var(--white); font-weight: 700; font-size: 0.85rem; }
+.on-dark .vol-mail p { color: var(--ink); font-size: 0.98rem; line-height: 1.5; margin: 0 0 0.7rem; }
+.on-dark .vol-mail .vol-mail__subject { font-family: var(--font-display); font-size: 1.25rem; color: var(--green-800); margin-bottom: 0.6rem; }
+.vol-mail ul { margin: 0 0 0.8rem 1.2rem; padding: 0; color: var(--ink); font-size: 0.98rem; line-height: 1.6; }
