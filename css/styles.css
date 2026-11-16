@@ -66,7 +66,7 @@
   --shadow-card: 0 6px 24px rgba(16, 22, 18, 0.07);
   /* Measured height of the sticky header; the hero subtracts it so the
      first screen is entirely hero with no section leaking in below. */
-  --header-h: 71px;
+  --header-h: 101px;
 
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-numeral: "Playfair Display", Georgia, serif;
@@ -3333,3 +3333,98 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
 /* Chapters steps: flat illustrations instead of icon circles */
 .ch-steps__art { display: block; width: 100%; max-width: 300px; height: auto; margin: 0 auto 1.2rem; }
 .ch-steps__n { z-index: 1; }
+
+/* ============================================================
+   Header, larger (2026-11-15): taller bar, bigger logo and nav
+   buttons, light dropdown menus
+   ============================================================ */
+.nav-wrap { padding: 0.95rem 0; }
+.site-header .logo-img { height: 60px; }
+.site-header .brand-name { font-size: 1.32rem; }
+.site-nav > ul { gap: 0.5rem; }
+.site-header .nav-link { font-size: 1.12rem; padding: 0.7em 1.15em; }
+.site-header .drop-btn::after { font-size: 0.8em; }
+
+/* Dropdown: light mint card, deep-green text, gold accent on hover */
+.site-header .dropdown {
+  background: var(--white);
+  border: 1px solid var(--green-100);
+  box-shadow: 0 20px 44px rgba(18, 45, 25, 0.22);
+  padding: 0.6rem;
+  min-width: 240px;
+}
+.site-header .dropdown a {
+  color: var(--green-900); font-size: 1.05rem; padding: 0.7em 1em; text-shadow: none;
+}
+.site-header .dropdown a:hover,
+.site-header .dropdown a:focus-visible { background: var(--green-100); color: var(--green-800); box-shadow: inset 3px 0 0 var(--gold); }
+
+@media (max-width: 920px) {
+  .nav-wrap { padding: 0.75rem 0; }
+  .site-header .logo-img { height: 52px; }
+  .site-header .brand-name { font-size: 1.18rem; }
+  .nav-toggle { font-size: 1.4rem; padding: 0.35em 0.65em; }
+  .site-nav { background: var(--green-800); }
+  .site-header .nav-link { font-size: 1.15rem; }
+  .site-header .dropdown { background: rgba(255, 255, 255, 0.08); border: none; border-radius: 12px; box-shadow: none; padding: 0.3rem; min-width: 0; margin: 0.2rem 0 0.4rem 0.8rem; }
+  .site-header .dropdown a { color: var(--white); }
+  .site-header .dropdown a:hover, .site-header .dropdown a:focus-visible { background: rgba(255, 255, 255, 0.14); color: var(--gold-light); }
+}
+@media (max-width: 920px) { :root { --header-h: 82px; } }
+
+/* ---- Header, round 2: brand-gradient bar and bright dropdowns, a size larger ---- */
+.nav-wrap { padding: 1.05rem 0; }
+.site-header .logo-img { height: 66px; }
+.site-header .brand-name { font-size: 1.45rem; }
+.site-nav > ul { gap: 0.6rem; }
+.site-header .nav-link { font-size: 1.22rem; font-weight: 700; padding: 0.72em 1.2em; }
+
+/* Solid bar: the homepage hero gradient, deepest end under the logo */
+.site-header.is-solid,
+.site-header.nav-open {
+  background: linear-gradient(90deg, var(--green-700) 0%, #229145 30%, #30a34c 65%, #3eb452 100%);
+  border-bottom-color: rgba(254, 224, 81, 0.55);
+}
+.site-header.is-solid .brand-name,
+.site-header.is-solid .nav-link,
+.site-header.nav-open .nav-link { text-shadow: 0 1px 6px rgba(18, 45, 25, 0.45); }
+.site-header .nav-link:hover,
+.site-header .has-dropdown.open > .nav-link { background: rgba(18, 45, 25, 0.28); color: var(--gold-light); }
+.site-header .drop-btn::after { color: var(--gold-light); }
+
+/* Dropdown: bright brand-green card, white links, gold highlight on hover */
+.site-header .dropdown {
+  background: linear-gradient(160deg, #3eb452 0%, #30a34c 45%, #229145 100%);
+  border: 2px solid rgba(254, 224, 81, 0.7);
+  box-shadow: 0 22px 46px rgba(18, 45, 25, 0.38);
+  padding: 0.65rem;
+  min-width: 260px;
+}
+.site-header .dropdown a {
+  color: var(--white); font-weight: 700; font-size: 1.14rem; padding: 0.72em 1.05em;
+  text-shadow: 0 1px 4px rgba(18, 45, 25, 0.4);
+}
+.site-header .dropdown a:hover,
+.site-header .dropdown a:focus-visible {
+  background: var(--gold-light); color: var(--green-900); text-shadow: none; box-shadow: none;
+}
+
+@media (max-width: 920px) {
+  .nav-wrap { padding: 0.8rem 0; }
+  .site-header .logo-img { height: 56px; }
+  .site-header .brand-name { font-size: 1.25rem; }
+  .site-nav { background: linear-gradient(180deg, #229145 0%, #30a34c 100%); }
+  .site-header .nav-link { font-size: 1.25rem; }
+  .site-header .dropdown { background: rgba(18, 45, 25, 0.22); border: none; box-shadow: none; }
+  .site-header .dropdown a { font-size: 1.12rem; }
+}
+@media (max-width: 420px) {
+  .site-header .logo-img { height: 50px; }
+  .site-header .brand-name { font-size: 1.12rem; white-space: nowrap; }
+  .site-header .brand { gap: 0.55rem; }
+}
+/* No gold outlines: drop the dropdown border and the bar's bottom rule */
+.site-header .dropdown { border: none; }
+.site-header.is-solid, .site-header.nav-open { border-bottom-color: transparent; }
+.nav-toggle { border-color: rgba(255, 255, 255, 0.85); color: var(--white); }
+@media (max-width: 920px) { .site-nav { border-bottom: none; } }
