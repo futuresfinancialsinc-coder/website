@@ -3484,3 +3484,28 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
 .pt-orbit__logos a:hover, .pt-orbit__logos a:focus-visible { transform: scale(1.08); }
 .pt-orbit__logos a:focus-visible { outline: 3px solid var(--gold); outline-offset: 6px; }
 @media (prefers-reduced-motion: reduce) { .pt-orbit__logos a { transition: none; } .pt-orbit__logos a:hover, .pt-orbit__logos a:focus-visible { transform: none; } }
+
+/* ============================================================
+   Policy, minimal (2026-11-15): title, then two bill cards
+   ============================================================ */
+.pol { background: var(--white); padding: calc(var(--header-h) + clamp(3rem, 7vw, 5rem)) 0 clamp(4rem, 8vw, 6rem); }
+.pol__title { text-align: center; color: var(--green-800); font-weight: 700; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.05; margin: 0 0 clamp(2.5rem, 5vw, 4rem); }
+.pol__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 3.5rem); max-width: 1160px; margin: 0 auto; align-items: start; }
+.pol-card__img { display: block; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--white); box-shadow: var(--shadow-card); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.pol-card__img img { display: block; width: 100%; height: auto; }
+.pol-card__img:hover, .pol-card__img:focus-visible { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(18, 45, 25, 0.16); }
+.pol-card__img:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.pol-card__name { font-size: clamp(1.5rem, 2.4vw, 1.9rem); margin: 1.4rem 0 0.4rem; }
+.pol-card__name a { color: var(--green-800); text-decoration: none; }
+.pol-card__name a:hover, .pol-card__name a:focus-visible { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 0.18em; }
+.pol-card__status { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.98rem; margin: 0 0 1rem; }
+.pol-card__status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.pol-card__status--live { color: var(--green-700); }
+.pol-card__status--live::before { background: var(--green-400); }
+.pol-card__status--died { color: var(--muted); }
+.pol-card__status--died::before { background: var(--muted); }
+.pol-card ul { margin: 0; padding-left: 1.2rem; }
+.pol-card li { color: var(--ink); font-size: 1.04rem; line-height: 1.55; margin-bottom: 0.7rem; }
+@media (max-width: 820px) { .pol__grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .pol-card__img { transition: none; } .pol-card__img:hover, .pol-card__img:focus-visible { transform: none; } }
+.brand-hero + .pol { padding-top: clamp(3.5rem, 7vw, 5.5rem); }
