@@ -306,3 +306,32 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", wwhUpdate);
   }
 });
+
+/* Homepage stats: numbers drift with the cursor at different depths (CKF-style).
+   Uses the CSS `translate` property so it stacks with the hover scale. */
+(function () {
+  var wall = document.querySelector('.impact-wall');
+  var stats = wall ? wall.querySelectorAll('.iw-stat') : [];
+  if (!stats.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var depth = [34, 22, 26, 30, 18];
+  var raf = null, px = 0, py = 0;
+  function apply() {
+    raf = null;
+    for (var i = 0; i < stats.length; i++) {
+      var d = depth[i % depth.length];
+      stats[i].style.translate = (px * d).toFixed(1) + 'px ' + (py * d).toFixed(1) + 'px';
+    }
+  }
+  wall.addEventListener('pointermove', function (e) {
+    var r = wall.getBoundingClientRect();
+    px = ((e.clientX - r.left) / r.width - 0.5) * 2;
+    py = ((e.clientY - r.top) / r.height - 0.5) * 2;
+    if (!raf) raf = requestAnimationFrame(apply);
+  });
+  wall.addEventListener('pointerleave', function () {
+    px = 0; py = 0;
+    if (!raf) raf = requestAnimationFrame(apply);
+  });
+})();

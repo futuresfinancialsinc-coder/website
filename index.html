@@ -103,17 +103,14 @@
        around it, coin/sprout line art behind. Modelled on the Origami For Good
        opening, rebuilt in our palette with our own photographs. -->
   <section class="hero-mosaic" data-hero>
-    <div class="hero-mosaic__pattern" aria-hidden="true"></div>
-
-    <div class="hero-mosaic__tiles" aria-hidden="true">
-      <figure class="hm-tile hm-tile--a"><img src="images/session-entrepreneurs.jpg" alt="Futures Financials volunteers leading a session on entrepreneurship" loading="eager" width="700" height="525" /></figure>
-      <figure class="hm-tile hm-tile--b"><img src="images/students-engaged.jpg" alt="Students taking part in a Futures Financials workshop" loading="eager" width="700" height="525" /></figure>
-      <figure class="hm-tile hm-tile--c"><img src="images/session-library.jpg" alt="A Futures Financials session running in a school library" width="700" height="525" /></figure>
-      <figure class="hm-tile hm-tile--d"><img src="images/session-delayed-gratification.jpg" alt="A lesson on delayed gratification on a classroom screen" width="700" height="467" /></figure>
-      <figure class="hm-tile hm-tile--e"><img src="images/session-forms-of-money.jpg" alt="A Futures Financials lesson on the forms of money" width="700" height="525" /></figure>
-      <figure class="hm-tile hm-tile--f"><img src="images/press-filming.jpg" alt="A Futures Financials session being filmed" width="700" height="525" /></figure>
-      <figure class="hm-tile hm-tile--g"><img src="images/fox5-my9-behind-camera.jpg" alt="Behind the camera during the Futures Financials taping with FOX 5 New York and My9 New Jersey" width="900" height="506" /></figure>
+    <!-- Photo mosaic (CKF stats-collage pattern): two classroom photos stacked on the left;
+         on the right the FOX 5/My9 set across the top with three smaller photos below.
+         Sizes come from each photo's aspect ratio, so frames match the photos closely. -->
+    <div class="hero-collage" aria-hidden="true">
+      <div class="hc-col" style="--w:0.666"><img class="hc-tile hc-a" src="images/session-entrepreneurs.jpg" alt="" style="--h:0.75; object-position: center 40%;" /><img class="hc-tile hc-c" src="images/press-filming.jpg" alt="" style="--h:0.75; object-position: center;" /></div>
+      <div class="hc-col" style="--w:1.247"><img class="hc-tile hc-g" src="images/fox5-my9-behind-camera-full.jpg" alt="" style="--h:0.562; object-position: center;" /><div class="hc-sub" style="--h:0.24"><img class="hc-tile hc-f" src="images/session-delayed-gratification.jpg" alt="" style="--ar:1.499; object-position: center;" /><img class="hc-tile hc-e" src="images/session-library.jpg" alt="" style="--ar:1.333; object-position: center 45%;" /><img class="hc-tile hc-b" src="images/session-forms-of-money.jpg" alt="" style="--ar:1.333; object-position: center 40%;" /></div></div>
     </div>
+    <div class="hero-collage__tint" aria-hidden="true"></div>
 
     <div class="container hero-mosaic__inner">
       <img class="hm-logo hero-anim" style="--i: 1" src="images/logo-2026-hero.png" width="260" height="300"
@@ -222,7 +219,7 @@
       <img src="images/team-building.jpg" alt="" loading="lazy" />
       <img src="images/session-media-center.jpg" alt="" loading="lazy" />
       <img src="images/session-flags-room.jpg" alt="" loading="lazy" />
-      <img src="images/library-session-scenario.jpg" alt="" loading="lazy" />
+      <img src="images/fox5-danny-jang-founder.jpg" alt="" loading="lazy" />
     </div>
     <div class="iw-tint" aria-hidden="true"></div>
     <!-- PARTNER STRIP -->
@@ -279,9 +276,9 @@
         <p>Every lesson is written and taught by someone close enough in age to remember not knowing.</p>
       </div>
       <div class="iw-cards">
-        <a class="iw-card" href="/volunteer"><span>volunteer</span><img src="images/volunteers-four.jpg" alt="Four Futures Financials volunteers" loading="lazy" /></a>
-        <a class="iw-card" href="/start-a-chapter"><span>start a chapter</span><img src="images/teaching-5.jpg" alt="Futures Financials officers outside a partner school" loading="lazy" style="object-position: center 42%;" /></a>
-        <a class="iw-card" href="/our-partners"><span>partner</span><img src="images/visit/ecus-upper-school.jpg" alt="Futures Financials volunteers giving a thumbs-up under the Upper School banner" loading="lazy" style="object-position: 70% 50%;" /></a>
+        <a class="iw-card" href="/volunteer"><span>volunteer</span><img src="images/home-cards/ecus-sign.jpg" alt="Seven Futures Financials volunteers outside Englewood Cliffs Upper School" loading="lazy" width="1000" height="870" /></a>
+        <a class="iw-card" href="/start-a-chapter"><span>start a chapter</span><img src="images/home-cards/paramus-library.jpg" alt="Two Futures Financials officers at the Paramus Public Library sign" loading="lazy" width="1000" height="870" /></a>
+        <a class="iw-card" href="/our-partners"><span>partner</span><img src="images/home-cards/ecus-upper-school.jpg" alt="Futures Financials volunteers giving a thumbs-up under the Upper School banner" loading="lazy" width="1000" height="870" /></a>
       </div>
     </div>
   </section>

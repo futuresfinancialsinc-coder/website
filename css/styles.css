@@ -3727,3 +3727,118 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
 .why__text p:last-child { margin-bottom: 0; }
 .why .hl { color: var(--gold-light); font-weight: 700; }
 .why + .pol { padding-top: clamp(3rem, 7vw, 5rem); }
+
+/* ===== Homepage hero: photo reel canvas + partner strip on the stats background, 2026-11-18 ===== */
+.hero-mosaic { background: var(--brand-muted, var(--brand-gradient)); }
+/* CKF-style mosaic: three columns of stacked photos. A column's width (--w) and each
+   tile's height (--h) come from the photos' aspect ratios, so every frame is close to
+   its photo's own shape and object-fit: cover only trims the edges lightly. */
+.hero-collage { position: absolute; inset: 0; z-index: 0; padding: 14px; display: flex; gap: 14px; overflow: hidden; }
+.hc-col { flex: calc(var(--w) * 10) 1 0; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.hc-tile {
+  flex: calc(var(--h) * 10) 1 0; min-height: 0; width: 100%; display: block; object-fit: cover;
+  border-radius: 4px; filter: grayscale(0.55) contrast(1.05);
+}
+.hc-sub { flex: calc(var(--h) * 10) 1 0; min-height: 0; display: flex; gap: 14px; }
+.hc-sub .hc-tile { flex: var(--ar) 1 0; width: 0; min-width: 0; height: 100%; }
+@media (max-width: 760px) {
+  .hero-collage { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 10px; padding: 10px;
+    grid-template-areas: "a c" "g g" "f e" "b b"; }
+  .hc-sub { display: contents; }
+  .hc-sub .hc-tile { width: 100%; }
+  .hc-col { display: contents; }
+  .hc-tile { height: 100%; }
+  .hc-a { grid-area: a; } .hc-b { grid-area: b; } .hc-c { grid-area: c; } .hc-d { grid-area: d; }
+  .hc-e { grid-area: e; } .hc-f { grid-area: f; } .hc-g { grid-area: g; }
+}
+.hero-collage__tint {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: var(--brand-muted, var(--brand-gradient)); opacity: 0.82;
+}
+.hero-collage__tint::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 48% 44% at 50% 55%, rgba(14, 46, 22, 0.85), rgba(14, 46, 22, 0.4) 58%, rgba(14, 46, 22, 0) 85%);
+}
+
+/* Partner strip now sits on the same photo + green tint as the stats below it;
+   each logo keeps its own colours on a small white card so it stays legible. */
+.impact-wall .iw-tint { top: 0; }
+.iw-strip { background: transparent; box-shadow: none; padding: 1.4rem 0 1.2rem; }
+.iw-strip .marquee__track { align-items: center; gap: clamp(2.2rem, 4vw, 3.6rem); padding-right: clamp(2.2rem, 4vw, 3.6rem); }
+/* Logos sit straight on the green in their own colours (transparent PNGs, no cards).
+   A faint white edge keeps the dark wordmarks (Princeton, Seton Hall, NGPF) legible. */
+.iw-strip .marquee__track img {
+  height: 40px; max-width: 170px; object-fit: contain; background: none; padding: 0; border-radius: 0; box-shadow: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.28));
+}
+.iw-strip .marquee__track img.marquee__square { height: 52px; }
+.iw-strip .marquee__track img.marquee__wide { height: 26px; }
+
+/* ===== Homepage stats: CKF-scale numbers in yellow, white labels, hover emphasis, 2026-11-18 ===== */
+.iw-stats { row-gap: clamp(1rem, 2.5vw, 2rem); column-gap: 1rem; }
+.iw-stat { transition: transform 0.35s cubic-bezier(.2, .8, .2, 1), opacity 0.35s ease, translate 0.6s cubic-bezier(.2, .8, .2, 1); transform-origin: left center; position: relative; }
+.iw-stat .stat-num, .iw-stat .stat-num .stat-suffix { color: #f8bb24; }
+.iw-stat .stat-num { letter-spacing: -0.03em; line-height: 0.95; text-shadow: 0 6px 30px rgba(8, 26, 14, 0.55); transition: text-shadow 0.35s ease; }
+.iw-stat .stat-label { margin-top: 0.45rem; color: var(--white); font-weight: 700; font-size: clamp(1rem, 1.75vw, 1.5rem); letter-spacing: 0.08em; text-shadow: 0 2px 12px rgba(8, 26, 14, 0.6); }
+.iw-stat--a { grid-column: 1 / 8;  grid-row: 1; }                      .iw-stat--a .stat-num { font-size: clamp(4.4rem, 12.5vw, 10.5rem); }
+.iw-stat--b { grid-column: 9 / 13; grid-row: 1; margin-top: 1.5rem; }  .iw-stat--b .stat-num { font-size: clamp(3.6rem, 9vw, 7.6rem); }
+.iw-stat--c { grid-column: 1 / 5;  grid-row: 2; margin-left: 0; }      .iw-stat--c .stat-num { font-size: clamp(3.2rem, 7.5vw, 6.2rem); }
+.iw-stat--d { grid-column: 5 / 9;  grid-row: 2; margin-top: 2.4rem; }  .iw-stat--d .stat-num { font-size: clamp(3.6rem, 8.6vw, 7.2rem); }
+.iw-stat--e { grid-column: 9 / 13; grid-row: 2; margin-top: 0.8rem; }  .iw-stat--e .stat-num { font-size: clamp(3.4rem, 8vw, 6.6rem); }
+.iw-stat--b, .iw-stat--e { transform-origin: right center; } .iw-stat--d { transform-origin: center; }
+@media (hover: hover) {
+  .iw-stats:hover .iw-stat { opacity: 0.45; }
+  .iw-stats .iw-stat:hover { opacity: 1; transform: scale(1.14); z-index: 2; }
+  .iw-stat:hover .stat-num { text-shadow: 0 0 34px rgba(248, 187, 36, 0.5), 0 8px 34px rgba(8, 26, 14, 0.6); }
+}
+@media (prefers-reduced-motion: reduce) { .iw-stat, .iw-stat .stat-num { transition: none; } }
+@media (max-width: 760px) {
+  .iw-stat--a .stat-num { font-size: clamp(4rem, 19vw, 5.6rem); }
+  .iw-stat--b .stat-num, .iw-stat--c .stat-num, .iw-stat--d .stat-num, .iw-stat--e .stat-num { font-size: clamp(2.9rem, 13vw, 3.8rem); }
+  .iw-stat, .iw-stat--b, .iw-stat--d, .iw-stat--e { transform-origin: left center; }
+}
+.hero-mosaic .hm-est, .hero-mosaic .hm-mission { text-shadow: 0 1px 3px rgba(10, 36, 18, 0.55), 0 2px 16px rgba(10, 36, 18, 0.45); }
+
+/* ===== Homepage: CKF-style action cards + header-bar green on the stats, 2026-11-18 ===== */
+:root { --brand-muted: linear-gradient(rgba(20, 56, 28, 0.3), rgba(20, 56, 28, 0.3)), var(--brand-gradient); }
+.impact-wall .iw-tint { background: var(--brand-muted); opacity: 0.86; }
+.impact-wall .iw-tint::after { background: linear-gradient(180deg, rgba(18, 45, 25, 0.55), transparent 18%, transparent 80%, rgba(18, 45, 25, 0.35)); opacity: 1; }
+.impact-wall { padding-bottom: 0; }
+.iw-cards { gap: 0; margin-top: clamp(2.5rem, 5vw, 4rem); margin-bottom: clamp(-90px, -7vw, -50px); align-items: flex-end; }
+.iw-card {
+  position: relative; width: clamp(240px, 31vw, 400px); aspect-ratio: 1.15; padding: 0; overflow: hidden;
+  background: var(--green-800); border: 7px solid var(--gold); border-radius: 24px; color: var(--white);
+  box-shadow: 0 22px 46px -16px rgba(8, 26, 14, 0.7);
+}
+.iw-card img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center bottom; border-radius: 0; }
+.iw-card span {
+  position: absolute; z-index: 1; top: 0.25em; left: 0; right: 0; padding: 0 0.3em; text-align: center;
+  color: var(--white); font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; line-height: 1;
+  font-size: clamp(1.9rem, 4vw, 3.6rem); text-shadow: 0 3px 20px rgba(8, 26, 14, 0.55);
+}
+.iw-card:nth-child(2) span { font-size: clamp(1.6rem, 3.2vw, 2.9rem); }
+.iw-card:nth-child(1) { transform: rotate(-5deg) translateY(18px); }
+.iw-card:nth-child(2) { z-index: 1; transform: translateY(-6px); }
+.iw-card:nth-child(3) { transform: rotate(5deg) translateY(18px); }
+.iw-card:nth-child(1):hover { transform: rotate(-5deg) translateY(4px); } .iw-card:nth-child(2):hover { transform: translateY(-20px); }
+.iw-card:nth-child(3):hover { transform: rotate(5deg) translateY(4px); }
+.iw-card + .iw-card { margin-left: clamp(-36px, -2.5vw, -12px); }
+@media (max-width: 760px) {
+  .iw-cards { margin-bottom: -30px; }
+  .iw-card { width: 36%; border-width: 4px; border-radius: 14px; }
+  .iw-card span, .iw-card:nth-child(2) span { font-size: clamp(0.95rem, 4.6vw, 1.4rem); }
+}
+
+/* Partner logos at CKF scale, 2026-11-18 */
+.impact-wall { --iw-strip-h: calc(3.6rem + 96px); }
+.iw-strip { padding: 1.8rem 0 1.6rem; }
+.iw-strip .marquee__track { gap: clamp(3rem, 5.5vw, 5rem); padding-right: clamp(3rem, 5.5vw, 5rem); }
+.iw-strip .marquee__track img { height: 76px; max-width: 280px; }
+.iw-strip .marquee__track img.marquee__square { height: 96px; }
+.iw-strip .marquee__track img.marquee__wide { height: 44px; max-width: 360px; }
+@media (max-width: 760px) {
+  .impact-wall { --iw-strip-h: calc(2.6rem + 64px); }
+  .iw-strip .marquee__track img { height: 50px; max-width: 190px; }
+  .iw-strip .marquee__track img.marquee__square { height: 64px; }
+  .iw-strip .marquee__track img.marquee__wide { height: 30px; max-width: 240px; }
+}
