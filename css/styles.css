@@ -3713,3 +3713,17 @@ body:has(main > section.legal:first-child) .site-header.is-solid { background: v
 @media (max-width: 600px) { .cu-quote__fig img { aspect-ratio: 4 / 3; } }
 
 .cu-legal { margin: 0 auto; padding-top: 1.6rem; padding-bottom: 1.6rem; font-size: 0.8rem; line-height: 1.5; color: var(--muted); text-align: center; max-width: 60rem; }
+
+/* ===== Research + Policy: photo title hero (cu-hero variant) and "Our Why", 2026-11-18 ===== */
+.cu-hero--title { min-height: min(74svh, 720px); }
+.cu-hero--title .cu-hero__inner { grid-template-rows: 1fr; align-items: center; }
+.cu-hero--title .cu-hero__title { margin: 0; }
+.why { background: var(--green-900); color: var(--white); padding: var(--section-md) 0; }
+.why__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(1.5rem, 5vw, 4.5rem); align-items: start; }
+@media (max-width: 860px) { .why__grid { grid-template-columns: 1fr; } }
+.why__title { margin: 0; }
+.why__title img { display: block; width: clamp(200px, 26vw, 360px); height: auto; filter: drop-shadow(0 4px 10px rgba(10, 30, 16, 0.35)); }
+.why__text p { margin: 0 0 1.1rem; color: rgba(255, 255, 255, 0.94); font-size: clamp(1.1rem, 1.6vw, 1.32rem); line-height: 1.6; max-width: 40rem; }
+.why__text p:last-child { margin-bottom: 0; }
+.why .hl { color: var(--gold-light); font-weight: 700; }
+.why + .pol { padding-top: clamp(3rem, 7vw, 5rem); }
