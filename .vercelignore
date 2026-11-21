@@ -10,9 +10,3 @@ server.py
 images/_originals
 NEW BRANDING
 *.csv
-
-# 2026-11-20: Jacob hidden (page kept on disk; see [C] Hidden Team Members.md)
-team-jacob.html
-images/team/jacob.jpg
-images/team/jacob-color.jpg
-images/team/jacob-portrait.jpg
