@@ -2,7 +2,7 @@
 
 > Futures Financials Inc. is a student-led 501(c)(3) nonprofit (EIN 33-1515809) that delivers hands-on financial literacy education to young people. Founded in 2022, it has reached more than 15,000 students through 150+ teach-in sessions at 70+ schools and libraries, run by 450+ student volunteers across 18+ chapters in 7 countries.
 
-The organization is run entirely by students. Its five executive officers are its founder and four co-founders. Programs are delivered in person through partner schools, libraries, and community organizations rather than through this website.
+The organization is run entirely by students. Its executive officers are its founder and co-founders. Programs are delivered in person through partner schools, libraries, and community organizations rather than through this website.
 
 ## Key facts
 
@@ -37,7 +37,6 @@ The organization is run entirely by students. Its five executive officers are it
 - [Hans Patel](https://futuresfinancials.org/team-hans): Co-founder and Co-CEO.
 - [Justin Pua](https://futuresfinancials.org/team-justin): Co-founder and Co-CEO.
 - [Aren Inan](https://futuresfinancials.org/team-aren): Chief Financial Officer and co-founder.
-- [Jacob Brynczka](https://futuresfinancials.org/team-jacob): Chief Operating Officer and co-founder.
 
 ## Policies
 
